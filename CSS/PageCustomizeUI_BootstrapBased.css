@@ -28,15 +28,7 @@ body {
   border-radius: 1px;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
-.hamburger-btn.open .hamburger-line:nth-child(1) {
-  transform: rotate(45deg) translate(6px, 6px);
-}
-.hamburger-btn.open .hamburger-line:nth-child(2) {
-  opacity: 0;
-}
-.hamburger-btn.open .hamburger-line:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
-}
+
 .hero-card {
   border-radius: 1.5rem;
   box-shadow: 0 0.75rem 1.5rem rgba(33, 37, 41, 0.08);
