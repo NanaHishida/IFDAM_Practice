@@ -1,0 +1,82 @@
+body {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 55%, #f8f9fa 100%);
+  color: var(--bs-body-color);
+  font-family: var(--bs-font-sans-serif);
+}
+.hero-card {
+  border-radius: 1.5rem;
+  box-shadow: 0 0.75rem 1.5rem rgba(33, 37, 41, 0.08);
+  background: var(--bs-white);
+}
+.cake-card {
+  width: 100%;
+  min-height: 140px;
+  max-height: 140px;
+  border-radius: 1.5rem;
+  border: 1px solid var(--bs-gray-200);
+  box-shadow: 0 0.5rem 1rem rgba(33, 37, 41, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.cake-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0.75rem 1.25rem rgba(33, 37, 41, 0.12);
+}
+
+.animate-left {
+  animation: float-left 4.5s ease-in-out infinite;
+}
+
+.animate-right {
+  animation: float-right 4.5s ease-in-out infinite;
+}
+
+@keyframes float-left {
+  0%, 100% {
+    transform: translateX(-6px);
+  }
+  50% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes float-right {
+  0%, 100% {
+    transform: translateX(6px);
+  }
+  50% {
+    transform: translateX(0);
+  }
+}
+.menu-panel {
+  position: fixed;
+  inset: 0;
+  background: rgba(33, 37, 41, 0.5);
+  display: none;
+  place-items: center;
+  z-index: 1050;
+}
+.menu-panel.show {
+  display: grid;
+}
+.menu-content {
+  width: min(320px, 90%);
+  border-radius: 1.5rem;
+  padding: 24px;
+  background: var(--bs-white);
+  box-shadow: 0 1.25rem 2.5rem rgba(33, 37, 41, 0.15);
+}
+.menu-content a {
+  display: block;
+  padding: 0.9rem 0;
+  color: var(--bs-dark);
+  text-decoration: none;
+  border-bottom: 1px solid var(--bs-gray-200);
+}
+.menu-content a:last-child {
+  border-bottom: none;
+}
+.menu-content a:hover {
+  color: var(--bs-primary);
+  text-decoration: none;
+}

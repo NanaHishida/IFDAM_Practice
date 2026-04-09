@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PageCustomizeUI - Bootstrap Based</title>
+  <link rel="stylesheet" href="../CSS/bootstrap.css" />
+  <link rel="stylesheet" href="../CSS/PageCustomizeUI_BootstrapBased.css" />
+</head>
+<body>
+  <div class="container py-4">
+    <header class="d-flex align-items-center justify-content-between pb-3 border-bottom">
+      <div class="h5 fw-bold text-primary mb-0">CakeFromZer0</div>
+      <button id="menuToggle" class="btn btn-outline-secondary rounded-3" type="button" aria-label="メニューを開く">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </header>
+
+    <div class="hero-card mt-4 p-4 p-lg-5">
+      <div class="row g-3 align-items-center text-center">
+        <div class="col-6 col-md-3">
+          <div class="cake-card d-flex align-items-center justify-content-center p-3 animate-left">
+            <span class="fw-semibold">くまケーキ</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="cake-card d-flex align-items-center justify-content-center p-3">
+            <span class="fw-semibold">おいしそうなケーキ</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="cake-card d-flex align-items-center justify-content-center p-3">
+            <span class="fw-semibold">おいしそうなケーキ</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="cake-card d-flex align-items-center justify-content-center p-3 animate-right">
+            <span class="fw-semibold">いちごケーキ</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-center my-4">
+        <a href="#customize" class="btn btn-primary btn-lg rounded-pill px-5">ケーキのカスタマイズをする <span class="ms-2">→</span></a>
+      </div>
+
+      <div class="row g-3 align-items-center text-center">
+        <div class="col-6 col-md-3">
+          <div class="cake-card d-flex align-items-center justify-content-center p-3">
+            <span class="fw-semibold">おいしそうなケーキ</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="cake-card d-flex align-items-center justify-content-center p-3 animate-left">
+            <span class="fw-semibold">おいしそうなケーキ</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="cake-card d-flex align-items-center justify-content-center p-3">
+            <span class="fw-semibold">チョコケーキ</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="cake-card d-flex align-items-center justify-content-center p-3 animate-right">
+            <span class="fw-semibold">いちごケーキ</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-panel" id="menuPanel" aria-hidden="true">
+    <div class="menu-content">
+      <h5 class="mb-3">メニュー</h5>
+      <a href="#customize">ケーキのカスタマイズ</a>
+      <a href="#examples">カスタマイズ例を見る</a>
+      <a href="#store">店舗情報</a>
+      <a href="#login">ログイン</a>
+      <button id="menuClose" class="btn btn-outline-secondary btn-sm mt-3">閉じる</button>
+    </div>
+  </div>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const menuPanel = document.getElementById('menuPanel');
+    const menuClose = document.getElementById('menuClose');
+
+    function toggleMenu() {
+      const isOpen = menuPanel.classList.toggle('show');
+      menuPanel.setAttribute('aria-hidden', String(!isOpen));
+    }
+
+    menuToggle.addEventListener('click', toggleMenu);
+    menuClose.addEventListener('click', toggleMenu);
+    menuPanel.addEventListener('click', (event) => {
+      if (event.target === menuPanel) toggleMenu();
+    });
+  </script>
+</body>
+</html>
