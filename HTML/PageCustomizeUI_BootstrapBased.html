@@ -6,6 +6,7 @@
   <title>PageCustomizeUI - Bootstrap Based</title>
   <link rel="stylesheet" href="../CSS/bootstrap.css" />
   <link rel="stylesheet" href="../CSS/PageCustomizeUI_BootstrapBased.css" />
+  <script src="../JavaScript/PageCustomizeUI_BootstrapBased.js"></script>
 </head>
 <body>
   <div class="container py-4">
@@ -80,21 +81,5 @@
     </div>
   </div>
 
-  <script>
-    const menuToggle = document.getElementById('menuToggle');
-    const menuPanel = document.getElementById('menuPanel');
-    const menuClose = document.getElementById('menuClose');
-
-    function toggleMenu() {
-      const isOpen = menuPanel.classList.toggle('show');
-      menuPanel.setAttribute('aria-hidden', String(!isOpen));
-    }
-
-    menuToggle.addEventListener('click', toggleMenu);
-    menuClose.addEventListener('click', toggleMenu);
-    menuPanel.addEventListener('click', (event) => {
-      if (event.target === menuPanel) toggleMenu();
-    });
-  </script>
 </body>
 </html>
