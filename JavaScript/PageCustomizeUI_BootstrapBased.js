@@ -4,6 +4,7 @@ const menuClose = document.getElementById('menuClose');
 
 function toggleMenu() {
   const isOpen = menuPanel.classList.toggle('show');
+  menuToggle.classList.toggle('open', isOpen);
   menuPanel.setAttribute('aria-hidden', String(!isOpen));
 }
 
