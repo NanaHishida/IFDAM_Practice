@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ケーキカスタマイズ画面</title>
+  <link rel="stylesheet" href="../CSS/bootstrap.css" />
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* ヘッダー */
+    header {
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* ロゴ */
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #0d6efd;
+    }
+
+    /* メインコンテナ */
+    .customize-container {
+      display: grid;
+      grid-template-columns: 1fr 350px;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 992px) {
+      .customize-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* トッピング・オプションセクション */
+    .topping-section {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: #212529;
+      border-bottom: 2px solid #0d6efd;
+      padding-bottom: 0.5rem;
+    }
+
+    /* トッピンググリッド */
+    .topping-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    /* トッピングカード */
+    .topping-card {
+      border: 2px solid #dee2e6;
+      border-radius: 8px;
+      padding: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background-color: #fff;
+      text-align: center;
+    }
+
+    .topping-card:hover {
+      border-color: #0d6efd;
+      box-shadow: 0 4px 12px rgba(13, 110, 253, 0.15);
+    }
+
+    .topping-card.selected {
+      border-color: #0d6efd;
+      background-color: #cfe2ff;
+    }
+
+    .topping-image {
+      width: 100%;
+      height: 120px;
+      background-color: #e9ecef;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .topping-name {
+      font-weight: 600;
+      color: #212529;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .topping-price {
+      color: #0d6efd;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .stock-badge {
+      display: inline-block;
+      background-color: #dc3545;
+      color: white;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    /* プレビューサイドバー */
+    .preview-sidebar {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      height: fit-content;
+      position: sticky;
+      top: 2rem;
+    }
+
+    .preview-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #212529;
+    }
+
+    .preview-image {
+      width: 100%;
+      height: 180px;
+      background-color: #e9ecef;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* 価格情報 */
+    .price-info {
+      background-color: #f8f9fa;
+      border-radius: 6px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+      font-size: 0.95rem;
+    }
+
+    .price-row.total {
+      border-top: 2px solid #dee2e6;
+      padding-top: 0.75rem;
+      margin-top: 0.75rem;
+      font-weight: 700;
+      color: #0d6efd;
+      font-size: 1.1rem;
+    }
+
+    .price-label {
+      color: #6c757d;
+    }
+
+    .price-value {
+      font-weight: 600;
+      color: #212529;
+    }
+
+    /* 完成日 */
+    .completion-date {
+      background-color: #fff3cd;
+      border: 1px solid #ffc107;
+      border-radius: 6px;
+      padding: 0.75rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .completion-date-label {
+      font-size: 0.85rem;
+      color: #664d03;
+      margin-bottom: 0.25rem;
+    }
+
+    .completion-date-value {
+      font-weight: 700;
+      color: #664d03;
+      font-size: 1.1rem;
+    }
+
+    /* メモセクション */
+    .memo-section {
+      margin-bottom: 1.5rem;
+    }
+
+    .memo-label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #212529;
+      font-size: 0.95rem;
+    }
+
+    .memo-textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #dee2e6;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-family: inherit;
+      resize: vertical;
+    }
+
+    .memo-textarea:focus {
+      outline: none;
+      border-color: #0d6efd;
+      box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+    }
+
+    /* ボタン */
+    .checkout-btn {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #0d6efd;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .checkout-btn:hover {
+      background-color: #0a58ca;
+    }
+
+    .checkout-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* 選択情報 */
+    .selected-items {
+      background-color: #d1e7dd;
+      border: 1px solid #a3cfbb;
+      border-radius: 6px;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .selected-items-title {
+      font-weight: 600;
+      color: #0a3622;
+      margin-bottom: 0.5rem;
+    }
+
+    .selected-item {
+      color: #0a3622;
+      padding: 0.25rem 0;
+    }
+
+    .selected-item::before {
+      content: "✓ ";
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header class="d-flex align-items-center justify-content-between p-3 border-bottom">
+    <div class="logo">CakeFromZer0</div>
+    <button class="btn btn-outline-primary btn-sm">ログイン</button>
+  </header>
+
+  <div class="container py-4">
+    <h1 class="mb-4" style="font-size: 2rem; font-weight: 700; color: #212529;">
+      ケーキをカスタマイズする
+    </h1>
+
+    <div class="customize-container">
+      <!-- メインコンテンツ -->
+      <div>
+        <!-- ベースケーキ選択 -->
+        <div class="topping-section mb-4">
+          <h2 class="section-title">ベースケーキを選択</h2>
+          <div class="topping-grid">
+            <div class="topping-card" onclick="selectBase(this, 'チョコケーキ', 1000)">
+              <div class="topping-image">🍰</div>
+              <div class="topping-name">チョコケーキ</div>
+              <div class="topping-price">¥1,000</div>
+            </div>
+            <div class="topping-card" onclick="selectBase(this, 'いちごケーキ', 1200)">
+              <div class="topping-image">🍓</div>
+              <div class="topping-name">いちごケーキ</div>
+              <div class="topping-price">¥1,200</div>
+            </div>
+            <div class="topping-card" onclick="selectBase(this, 'バニラケーキ', 900)">
+              <div class="topping-image">🧁</div>
+              <div class="topping-name">バニラケーキ</div>
+              <div class="topping-price">¥900</div>
+            </div>
+            <div class="topping-card" onclick="selectBase(this, 'チーズケーキ', 1100)">
+              <div class="topping-image">🧀</div>
+              <div class="topping-name">チーズケーキ</div>
+              <div class="topping-price">¥1,100</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- トッピング選択 -->
+        <div class="topping-section mb-4">
+          <h2 class="section-title">トッピングを選択 (複数選択可)</h2>
+          <div class="topping-grid">
+            <div class="topping-card" onclick="toggleTopping(this, 'フレッシュいちご', 300)">
+              <div class="topping-image">🍓</div>
+              <div class="topping-name">フレッシュいちご</div>
+              <div class="topping-price">+¥300</div>
+            </div>
+            <div class="topping-card" onclick="toggleTopping(this, 'チョコレートソース', 200)">
+              <div class="topping-image">🍫</div>
+              <div class="topping-name">チョコレートソース</div>
+              <div class="topping-price">+¥200</div>
+            </div>
+            <div class="topping-card" onclick="toggleTopping(this, 'ホイップクリーム', 150)">
+              <div class="topping-image">🍨</div>
+              <div class="topping-name">ホイップクリーム</div>
+              <div class="topping-price">+¥150</div>
+            </div>
+            <div class="topping-card" onclick="toggleTopping(this, 'ナッツミックス', 250)">
+              <div class="topping-image">🥜</div>
+              <div class="topping-name">ナッツミックス</div>
+              <div class="topping-price">+¥250</div>
+            </div>
+            <div class="topping-card" onclick="toggleTopping(this, 'ココアパウダー', 100)">
+              <div class="topping-image">☕</div>
+              <div class="topping-name">ココアパウダー</div>
+              <div class="topping-price">+¥100</div>
+            </div>
+            <div class="topping-card" onclick="toggleTopping(this, 'キャラメルソース', 200)">
+              <div class="topping-image">🍯</div>
+              <div class="topping-name">キャラメルソース</div>
+              <div class="topping-price">+¥200</div>
+            </div>
+            <div class="topping-card" onclick="toggleTopping(this, 'マカロン', 400)">
+              <div class="topping-image">🟡</div>
+              <div class="topping-name">マカロン</div>
+              <div class="topping-price">+¥400</div>
+            </div>
+            <div class="topping-card" onclick="toggleTopping(this, '金箔デコレーション', 500)">
+              <div class="topping-image">✨</div>
+              <div class="topping-name">金箔デコレーション</div>
+              <div class="topping-price">+¥500</div>
+            </div>
+            <div class="topping-card" onclick="toggleTopping(this, 'ローソク', 50)">
+              <div class="topping-image">🕯️</div>
+              <div class="topping-name">ローソク</div>
+              <div class="topping-price">+¥50</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- オプション選択 -->
+        <div class="topping-section">
+          <h2 class="section-title">オプションを選択</h2>
+          <div class="topping-grid">
+            <div class="topping-card" onclick="selectDecoration(this, 'ドライフルーツ', 300)">
+              <div class="topping-image">🐻</div>
+              <div class="topping-name">くまちゃんケーキ</div>
+              <div class="topping-price">¥1000</div>
+            </div>
+            <div class="topping-card" onclick="selectDecoration(this, 'フラワーデコ', 400)">
+              <div class="topping-image">🌸</div>
+              <div class="topping-name">フラワーデコ</div>
+              <div class="topping-price">¥600</div>
+            </div>
+            <div class="topping-card" onclick="selectDecoration(this, 'シンプル無地', 0)">
+              <div class="topping-image">🥦</div>
+              <div class="topping-name">ビーガン</div>
+              <div class="topping-price">¥1500</div>
+            </div>
+            <div class="topping-card" onclick="selectDecoration(this, 'ハッピーバースデー', 200)">
+              <div class="topping-image">🎂</div>
+              <div class="topping-name">ハッピーバースデー</div>
+              <div class="topping-price">¥200</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- プレビューサイドバー -->
+      <div class="preview-sidebar">
+        <div class="preview-title">プレビュー</div>
+        <div class="preview-image" id="previewImage">🎂</div>
+
+        <div class="selected-items" id="selectedItems" style="display: none;">
+          <div class="selected-items-title">選択中:</div>
+          <div id="selectedItemsList"></div>
+        </div>
+
+        <div class="price-info">
+          <div class="price-row">
+            <span class="price-label">税抜合計</span>
+            <span class="price-value" id="subtotal">¥0</span>
+          </div>
+          <div class="price-row">
+            <span class="price-label">消費税 (10%)</span>
+            <span class="price-value" id="tax">¥0</span>
+          </div>
+          <div class="price-row total">
+            <span>税込合計</span>
+            <span id="total">¥0</span>
+          </div>
+        </div>
+
+        <div class="completion-date">
+          <div class="completion-date-label">最早完成日</div>
+          <div class="completion-date-value" id="completionDate">○月○日</div>
+        </div>
+
+        <div class="memo-section">
+          <label class="memo-label">ケーキ担当者へのメモ</label>
+          <textarea
+            class="memo-textarea"
+            id="memo"
+            placeholder="例：名前を入れてください、アレルギーに注意してください"
+            rows="4"
+          ></textarea>
+        </div>
+
+        <button class="checkout-btn" onclick="goToCheckout()">
+          ログイン・会員登録をしてお会計へ →
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let cart = {
+      base: null,
+      basePrice: 0,
+      toppings: [],
+      decoration: null,
+      decorationPrice: 0,
+    };
+
+    function selectBase(element, name, price) {
+      // 前の選択を削除
+      document.querySelectorAll('.topping-grid')[0].querySelectorAll('.topping-card').forEach(card => {
+        card.classList.remove('selected');
+      });
+      
+      element.classList.add('selected');
+      cart.base = name;
+      cart.basePrice = price;
+      updatePrice();
+      updatePreview();
+    }
+
+    function toggleTopping(element, name, price) {
+      element.classList.toggle('selected');
+      
+      if (element.classList.contains('selected')) {
+        cart.toppings.push({ name, price });
+      } else {
+        cart.toppings = cart.toppings.filter(t => t.name !== name);
+      }
+      
+      updatePrice();
+      updatePreview();
+    }
+
+    function selectDecoration(element, name, price) {
+      // 前の選択を削除
+      document.querySelectorAll('.topping-grid')[2].querySelectorAll('.topping-card').forEach(card => {
+        card.classList.remove('selected');
+      });
+      
+      element.classList.add('selected');
+      cart.decoration = name;
+      cart.decorationPrice = price;
+      updatePrice();
+      updatePreview();
+    }
+
+    function updatePrice() {
+      const subtotal = cart.basePrice + 
+                      cart.toppings.reduce((sum, t) => sum + t.price, 0) + 
+                      cart.decorationPrice;
+      const taxAmount = Math.floor(subtotal * 0.1);
+      const total = subtotal + taxAmount;
+
+      document.getElementById('subtotal').textContent = '¥' + subtotal.toLocaleString();
+      document.getElementById('tax').textContent = '¥' + taxAmount.toLocaleString();
+      document.getElementById('total').textContent = '¥' + total.toLocaleString();
+    }
+
+    function updatePreview() {
+      const selectedItems = [];
+      if (cart.base) selectedItems.push(cart.base);
+      cart.toppings.forEach(t => selectedItems.push(t.name));
+      if (cart.decoration) selectedItems.push(cart.decoration);
+
+      const selectedItemsDiv = document.getElementById('selectedItems');
+      const selectedItemsList = document.getElementById('selectedItemsList');
+
+      if (selectedItems.length > 0) {
+        selectedItemsList.innerHTML = selectedItems.map(item => 
+          `<div class="selected-item">${item}</div>`
+        ).join('');
+        selectedItemsDiv.style.display = 'block';
+      } else {
+        selectedItemsDiv.style.display = 'none';
+      }
+    }
+
+    function goToCheckout() {
+      if (!cart.base) {
+        alert('ベースケーキを選択してください');
+        return;
+      }
+
+      const memo = document.getElementById('memo').value;
+      const items = [cart.base, ...cart.toppings.map(t => t.name)];
+      if (cart.decoration) items.push(cart.decoration);
+
+      alert(
+        'お会計へ進みます\n\n' +
+        '選択内容:\n' +
+        items.join('\n') +
+        '\n\n' +
+        (memo ? `メモ: ${memo}\n\n` : '') +
+        '合計: ' + document.getElementById('total').textContent
+      );
+    }
+
+    // ページ読込時に完成日を設定
+    function setCompletionDate() {
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      const month = tomorrow.getMonth() + 1;
+      const date = tomorrow.getDate();
+      document.getElementById('completionDate').textContent = `${month}月${date}日`;
+    }
+
+    window.addEventListener('load', setCompletionDate);
+  </script>
+</body>
+</html>
