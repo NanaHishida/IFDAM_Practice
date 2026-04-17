@@ -1,0 +1,273 @@
+body {
+  background-color: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ヘッダー */
+header {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ロゴ */
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0d6efd;
+}
+
+/* メインコンテナ */
+.customize-container {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 992px) {
+  .customize-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* トッピング・オプションセクション */
+.topping-section {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #212529;
+  border-bottom: 2px solid #0d6efd;
+  padding-bottom: 0.5rem;
+}
+
+/* トッピンググリッド */
+.topping-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+/* トッピングカード */
+.topping-card {
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #fff;
+  text-align: center;
+}
+
+.topping-card:hover {
+  border-color: #0d6efd;
+  box-shadow: 0 4px 12px rgba(13, 110, 253, 0.15);
+}
+
+.topping-card.selected {
+  border-color: #0d6efd;
+  background-color: #cfe2ff;
+}
+
+.topping-image {
+  width: 100%;
+  height: 120px;
+  background-color: #e9ecef;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.topping-name {
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.topping-price {
+  color: #0d6efd;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.stock-badge {
+  display: inline-block;
+  background-color: #dc3545;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* プレビューサイドバー */
+.preview-sidebar {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+  position: sticky;
+  top: 2rem;
+}
+
+.preview-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #212529;
+}
+
+.preview-image {
+  width: 100%;
+  height: 180px;
+  background-color: #e9ecef;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+}
+
+/* 価格情報 */
+.price-info {
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.price-row.total {
+  border-top: 2px solid #dee2e6;
+  padding-top: 0.75rem;
+  margin-top: 0.75rem;
+  font-weight: 700;
+  color: #0d6efd;
+  font-size: 1.1rem;
+}
+
+.price-label {
+  color: #6c757d;
+}
+
+.price-value {
+  font-weight: 600;
+  color: #212529;
+}
+
+/* 完成日 */
+.completion-date {
+  background-color: #fff3cd;
+  border: 1px solid #ffc107;
+  border-radius: 6px;
+  padding: 0.75rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.completion-date-label {
+  font-size: 0.85rem;
+  color: #664d03;
+  margin-bottom: 0.25rem;
+}
+
+.completion-date-value {
+  font-weight: 700;
+  color: #664d03;
+  font-size: 1.1rem;
+}
+
+/* メモセクション */
+.memo-section {
+  margin-bottom: 1.5rem;
+}
+
+.memo-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #212529;
+  font-size: 0.95rem;
+}
+
+.memo-textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.memo-textarea:focus {
+  outline: none;
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* ボタン */
+.checkout-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.3s ease;
+}
+
+.checkout-btn:hover {
+  background-color: #0a58ca;
+}
+
+.checkout-btn:active {
+  transform: scale(0.98);
+}
+
+/* 選択情報 */
+.selected-items {
+  background-color: #d1e7dd;
+  border: 1px solid #a3cfbb;
+  border-radius: 6px;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.selected-items-title {
+  font-weight: 600;
+  color: #0a3622;
+  margin-bottom: 0.5rem;
+}
+
+.selected-item {
+  color: #0a3622;
+  padding: 0.25rem 0;
+}
+
+.selected-item::before {
+  content: "✓ ";
+  font-weight: 700;
+}
