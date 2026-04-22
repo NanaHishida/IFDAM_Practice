@@ -1,3 +1,4 @@
+// 選択中を空に
 let cart = {
   base: null,
   basePrice: 0,
@@ -6,17 +7,19 @@ let cart = {
   decorationPrice: 0,
 };
 
+// ベースを選ぶ処理
 function selectBase(element, name, price) {
   // 前の選択を削除
   document.querySelectorAll('.topping-grid')[0].querySelectorAll('.topping-card').forEach(card => {
     card.classList.remove('selected');
   });
   
+  //ベースをカートに追加
   element.classList.add('selected');
   cart.base = name;
   cart.basePrice = price;
 
-  // レアチーズケーキの場合はクリームなしを選択し、他のクリームを無効化
+  // レアチーズケーキ、ザッハトルテの場合はクリームなしを選択し、他のクリームを無効化
   if (name === 'レアチーズケーキ' || name === 'ザッハトルテケーキ') {
     // クリームなしを選択
     const creamNone = document.getElementById('cream-none');
@@ -41,14 +44,17 @@ function selectBase(element, name, price) {
   updatePreview();
 }
 
+// クリームを選択する処理
 function toggleTopping(element, name, price) {
   // disabledのカードは選択できない
   if (element.classList.contains('disabled')) {
     return;
   }
 
+  // selectedを付けたり外したり
   element.classList.toggle('selected');
   
+  // selectedの有無に基づいてカートに入れたりカートから消したり
   if (element.classList.contains('selected')) {
     cart.toppings.push({ name, price, count: 1 });
   } else {
@@ -83,12 +89,14 @@ function isCream(name) {
   return creams.includes(name);
 }
 
+// オプションを選ぶ処理
 function selectDecoration(element, name, price) {
   // 前の選択を削除
-  document.querySelectorAll('.topping-grid')[2].querySelectorAll('.topping-card').forEach(card => {
+  document.querySelectorAll('.topping-grid')[3].querySelectorAll('.topping-card').forEach(card => {
     card.classList.remove('selected');
   });
   
+  // 選んだものにselectedをつける
   element.classList.add('selected');
   cart.decoration = name;
   cart.decorationPrice = price;
@@ -96,6 +104,7 @@ function selectDecoration(element, name, price) {
   updatePreview();
 }
 
+// 金額を更新する処理
 function updatePrice() {
   const subtotal = cart.basePrice + 
                   cart.toppings.reduce((sum, t) => sum + t.price * (t.count || 1), 0) + 
@@ -103,11 +112,13 @@ function updatePrice() {
   const taxAmount = Math.floor(subtotal * 0.1);
   const total = subtotal + taxAmount;
 
+  // 金額を表示する処理
   document.getElementById('subtotal').textContent = '¥' + subtotal.toLocaleString();
   document.getElementById('tax').textContent = '¥' + taxAmount.toLocaleString();
   document.getElementById('total').textContent = '¥' + total.toLocaleString();
 }
 
+// プレビューを更新する処理
 function updatePreview() {
   const selectedItems = [];
   if (cart.base) selectedItems.push(cart.base);
@@ -123,6 +134,7 @@ function updatePreview() {
   const selectedItemsDiv = document.getElementById('selectedItems');
   const selectedItemsList = document.getElementById('selectedItemsList');
 
+  // カスタマイズリストを表示する処理
   if (selectedItems.length > 0) {
     selectedItemsList.innerHTML = selectedItems.map(item => 
       `<div class="selected-item">${item}</div>`
@@ -133,16 +145,20 @@ function updatePreview() {
   }
 }
 
+// お会計に進む処理
 function goToCheckout() {
+  // ベースが選択されているか見張る処理
   if (!cart.base) {
     alert('ベースケーキを選択してください');
     return;
   }
 
+  // メモと選択したアイテムを引き継ぐ処理
   const memo = document.getElementById('memo').value;
   const items = [cart.base, ...cart.toppings.map(t => t.count > 1 ? `${t.name} x${t.count}` : t.name)];
   if (cart.decoration) items.push(cart.decoration);
 
+  // 選択内容を確認する処理
   alert(
     'お会計へ進みます\n\n' +
     '選択内容:\n' +
@@ -164,6 +180,7 @@ function setCompletionDate() {
 
 window.addEventListener('load', setCompletionDate);
 
+// トッピングの選択数を増やす処理
 function increaseTopping(name, price) {
   const existing = cart.toppings.find(t => t.name === name);
   if (existing) {
@@ -176,6 +193,7 @@ function increaseTopping(name, price) {
   updatePreview();
 }
 
+// トッピングの選択数を減らす処理
 function decreaseTopping(name) {
   const existing = cart.toppings.find(t => t.name === name);
   if (existing && existing.count > 0) {
@@ -189,6 +207,7 @@ function decreaseTopping(name) {
   updatePreview();
 }
 
+// 選択中の数を元にカードのselectedクラスを変更する処理
 function updateToppingDisplay(name) {
   const count = cart.toppings.find(t => t.name === name)?.count || 0;
   const id = `count-${name}`;
