@@ -26,28 +26,79 @@
         <div class="topping-section mb-4">
           <h2 class="section-title">ケーキのベースを選択</h2>
           <div class="topping-grid">
-            <div class="topping-card" onclick="selectBase(this, 'いちごのショートケーキ', 1000)">
-              <div class="topping-image">🍓</div>
-              <div class="topping-name">いちごのショートケーキ</div>
+            <div class="topping-card" onclick="selectBase(this, 'プレーンスポンジケーキ', 1000)">
+              <div class="topping-image">🧽</div>
+              <div class="topping-name">プレーンスポンジケーキ</div>
               <div class="topping-price">¥1,000</div>
-            </div> <!--.topping-card いちごケーキカード-->
-            <div class="topping-card" onclick="selectBase(this, 'チョコレートケーキ', 1200)">
+            </div> <!--.topping-card プレーンスポンジケーキカード-->
+            <div class="topping-card" onclick="selectBase(this, 'チョコレートスポンジケーキ', 1200)">
               <div class="topping-image">🍫</div>
-              <div class="topping-name">チョコレートケーキ</div>
+              <div class="topping-name">チョコレートスポンジケーキ</div>
               <div class="topping-price">¥1,200</div>
-            </div> <!--.topping-card チョコレートケーキカード-->
-            <div class="topping-card" onclick="selectBase(this, 'バニラケーキ', 900)">
-              <div class="topping-image">🧁</div>
-              <div class="topping-name">バニラケーキ</div>
-              <div class="topping-price">¥900</div>
-            </div> <!--.topping-card バニラケーキカード-->
-            <div class="topping-card" onclick="selectBase(this, 'チーズケーキ', 1100)">
+            </div> <!--.topping-card チョコレートスポンジケーキカード-->
+            <div class="topping-card" onclick="selectBase(this, 'レアチーズケーキ', 1100)">
               <div class="topping-image">🧀</div>
-              <div class="topping-name">チーズケーキ</div>
+              <div class="topping-name">レアチーズケーキ</div>
+              <div class="topping-price">¥1,300</div>
+            </div> <!--.topping-card レアチーズケーキカード-->
+            <div class="topping-card" onclick="selectBase(this, 'タルトケーキ', 1100)">
+              <div class="topping-image">🥧</div>
+              <div class="topping-name">タルトケーキ</div>
               <div class="topping-price">¥1,100</div>
-            </div> <!--.topping-card チーズケーキカード-->
+            </div> <!--.topping-card タルトケーキカード-->
+            <div class="topping-card" onclick="selectBase(this, 'ザッハトルテケーキ', 1100)">
+              <div class="topping-image">🍫🫠</div>
+              <div class="topping-name">ザッハトルテケーキ</div>
+              <div class="topping-price">¥1,600</div>
+            </div> <!--.topping-card ザッハトルテケーキカード-->
           </div> <!--.topping-grid ベースケーキ整列-->
         </div> <!--.topping-section ベースケーキセクション-->
+
+        <div class="topping-section mb-4">
+          <h2 class="section-title">クリームを選択 (複数選択可)</h2>
+          <div class="topping-grid">
+            <div class="topping-card" onclick="toggleTopping(this, 'ホイップクリーム', 300)">
+              <div class="topping-image">🍨</div>
+              <div class="topping-name">ホイップクリーム</div>
+              <div class="topping-price">¥300</div>
+            </div> <!--.topping-card ホイップクリームカード-->
+            <div class="topping-card" onclick="toggleTopping(this, 'チョコレートホイップクリーム', 350)">
+              <div class="topping-image">🍫</div>
+              <div class="topping-name">チョコレートホイップクリーム</div>
+              <div class="topping-price">¥350</div>
+            </div> <!--.topping-card チョコレートホイップクリームカード-->
+            <div class="topping-card" onclick="toggleTopping(this, 'チーズホイップクリーム', 350)">
+              <div class="topping-image">🧀</div>
+              <div class="topping-name">チーズホイップクリーム</div>
+              <div class="topping-price">¥350</div>
+            </div> <!--.topping-card チーズホイップクリームカード-->
+            <div class="topping-card" onclick="toggleTopping(this, 'キャラメルホイップクリーム', 300)">
+              <div class="topping-image">🍯</div>
+              <div class="topping-name">キャラメルホイップクリーム</div>
+              <div class="topping-price">¥300</div>
+            </div> <!--.topping-card キャラメルホイップクリームカード-->
+            <div class="topping-card" onclick="toggleTopping(this, 'マロンホイップクリーム', 400)">
+              <div class="topping-image">🌰</div>
+              <div class="topping-name">マロンホイップクリーム</div>
+              <div class="topping-price">¥400</div>
+            </div> <!--.topping-card マロンホイップクリームカード-->
+            <div class="topping-card" onclick="toggleTopping(this, 'カスタードクリーム', 200)">
+              <div class="topping-image">🥚</div>
+              <div class="topping-name">カスタードクリーム</div>
+              <div class="topping-price">¥200</div>
+            </div> <!--.topping-card カスタードクリームカード-->
+            <div class="topping-card" onclick="toggleTopping(this, 'ベリームース', 500)">
+              <div class="topping-image">🍓🫐</div>
+              <div class="topping-name">ベリームース</div>
+              <div class="topping-price">¥400</div>
+            </div> <!--.topping-card ベリームースカード-->
+            <div class="topping-card" onclick="toggleTopping(this, 'クリームなし', 0)">
+              <div class="topping-image">○</div>
+              <div class="topping-name">クリームなし</div>
+              <div class="topping-price">¥0</div>
+            </div> <!--.topping-card クリームなしカード-->
+          </div> <!--.topping-grid クリーム整列-->
+        </div> <!--.topping-section クリームセクション-->
 
         <!-- トッピング選択 -->
         <div class="topping-section mb-4">
