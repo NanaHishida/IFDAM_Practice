@@ -17,7 +17,7 @@ function selectBase(element, name, price) {
   cart.basePrice = price;
 
   // レアチーズケーキの場合はクリームなしを選択し、他のクリームを無効化
-  if (name === 'レアチーズケーキ' || 'ザッハトルテケーキ') {
+  if (name === 'レアチーズケーキ' || name === 'ザッハトルテケーキ') {
     // クリームなしを選択
     const creamNone = document.getElementById('cream-none');
     creamNone.classList.add('selected');
