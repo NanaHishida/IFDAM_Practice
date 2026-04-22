@@ -15,11 +15,53 @@ function selectBase(element, name, price) {
   element.classList.add('selected');
   cart.base = name;
   cart.basePrice = price;
+
+  // レアチーズケーキの場合はクリームなしを選択し、他のクリームを無効化
+  if (name === 'レアチーズケーキ') {
+    // クリームなしを選択
+    const creamNone = document.getElementById('cream-none');
+    creamNone.classList.add('selected');
+    cart.toppings = cart.toppings.filter(t => !isCream(t.name));
+    cart.toppings.push({ name: 'クリームなし', price: 0 });
+
+    // 他のクリームを無効化
+    const creamIds = ['cream-whip', 'cream-choco', 'cream-cheese', 'cream-caramel', 'cream-marron', 'cream-custard', 'cream-berry'];
+    creamIds.forEach(id => {
+      document.getElementById(id).classList.add('disabled');
+    });
+  } else {
+    // ザッハトルテケーキの場合はクリームなしを選択し、他のクリームを無効化
+      if (name === 'ザッハトルテケーキ') {
+    // クリームなしを選択
+    const creamNone = document.getElementById('cream-none');
+    creamNone.classList.add('selected');
+    cart.toppings = cart.toppings.filter(t => !isCream(t.name));
+    cart.toppings.push({ name: 'クリームなし', price: 0 });
+
+    // 他のクリームを無効化
+    const creamIds = ['cream-whip', 'cream-choco', 'cream-cheese', 'cream-caramel', 'cream-marron', 'cream-custard', 'cream-berry'];
+    creamIds.forEach(id => {
+      document.getElementById(id).classList.add('disabled');
+    });
+    } else {
+      // 他のベースケーキの場合、クリームの無効化を解除
+      const creamIds = ['cream-whip', 'cream-choco', 'cream-cheese', 'cream-caramel', 'cream-marron', 'cream-custard', 'cream-berry', 'cream-none'];
+      creamIds.forEach(id => {
+        document.getElementById(id).classList.remove('disabled');
+      });
+    }
+  }
+
   updatePrice();
   updatePreview();
 }
 
 function toggleTopping(element, name, price) {
+  // disabledのカードは選択できない
+  if (element.classList.contains('disabled')) {
+    return;
+  }
+
   element.classList.toggle('selected');
   
   if (element.classList.contains('selected')) {
@@ -27,9 +69,33 @@ function toggleTopping(element, name, price) {
   } else {
     cart.toppings = cart.toppings.filter(t => t.name !== name);
   }
+
+  // クリーム関連のロジック
+  if (isCream(name)) {
+    if (name === 'クリームなし') {
+      // クリームなしを選択したら、他のクリームを解除
+      const creamIds = ['cream-whip', 'cream-choco', 'cream-cheese', 'cream-caramel', 'cream-marron', 'cream-custard', 'cream-berry'];
+      creamIds.forEach(id => {
+        const card = document.getElementById(id);
+        card.classList.remove('selected');
+        cart.toppings = cart.toppings.filter(t => t.name !== card.querySelector('.topping-name').textContent);
+      });
+    } else {
+      // 他のクリームを選択したら、クリームなしを解除
+      const creamNone = document.getElementById('cream-none');
+      creamNone.classList.remove('selected');
+      cart.toppings = cart.toppings.filter(t => t.name !== 'クリームなし');
+    }
+  }
   
   updatePrice();
   updatePreview();
+}
+
+// クリームかどうかを判定する関数
+function isCream(name) {
+  const creams = ['ホイップクリーム', 'チョコレートホイップクリーム', 'チーズホイップクリーム', 'キャラメルホイップクリーム', 'マロンホイップクリーム', 'カスタードクリーム', 'ベリームース', 'クリームなし'];
+  return creams.includes(name);
 }
 
 function selectDecoration(element, name, price) {

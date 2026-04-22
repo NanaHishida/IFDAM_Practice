@@ -75,6 +75,12 @@ header {
   background-color: #cfe2ff;
 }
 
+.topping-card.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 .topping-image {
   width: 100%;
   height: 120px;
