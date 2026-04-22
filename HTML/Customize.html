@@ -127,7 +127,7 @@
             </div> <!--.topping-card サンタさんケーキカード-->
           </div> <!--.topping-grid オプション整列-->
         </div> <!--.topping-section オプションセクション-->
-      </div> <!--カスタマイズ-->
+      </div> <!--カスタマイズエリア-->
 
       <!-- プレビューサイドバー -->
       <div class="preview-sidebar">
@@ -137,27 +137,27 @@
         <div class="selected-items" id="selectedItems" style="display: none;">
           <div class="selected-items-title">選択中:</div>
           <div id="selectedItemsList"></div>
-        </div>
+        </div> <!--.selected-items 選択中リスト-->
 
         <div class="price-info">
           <div class="price-row">
             <span class="price-label">税抜合計</span>
             <span class="price-value" id="subtotal">¥0</span>
-          </div>
+          </div> <!--.price-row 税抜合計列-->
           <div class="price-row">
             <span class="price-label">消費税 (10%)</span>
             <span class="price-value" id="tax">¥0</span>
-          </div>
+          </div> <!--.price-row 消費税列-->
           <div class="price-row total">
             <span>税込合計</span>
             <span id="total">¥0</span>
-          </div>
-        </div>
+          </div> <!--.price-row .total 税込合計列-->
+        </div> <!--.price-info-->
 
         <div class="completion-date">
           <div class="completion-date-label">最早完成日</div>
           <div class="completion-date-value" id="completionDate">○月○日</div>
-        </div>
+        </div> <!--.completion-date 最早完成日-->
 
         <div class="memo-section">
           <label class="memo-label">ケーキ担当者へのメモ</label>
@@ -167,14 +167,14 @@
             placeholder="例：名前を入れてください、アレルギーに注意してください"
             rows="4"
           ></textarea>
-        </div>
+        </div> <!--.memo-section-->
 
         <button class="checkout-btn" onclick="goToCheckout()">
           ログイン・会員登録をしてお会計へ →
         </button>
-      </div>
-    </div>
-  </div>
+      </div> <!--.preview-sidebar プレビューエリア-->
+    </div> <!--タイトル以外のカスタマイズ画面-->
+  </div> <!--カスタマイズ画面-->
   <script src="../JavaScript/Customize.js"></script>
 </body>
 </html>
