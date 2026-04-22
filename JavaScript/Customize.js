@@ -50,7 +50,7 @@ function toggleTopping(element, name, price) {
   element.classList.toggle('selected');
   
   if (element.classList.contains('selected')) {
-    cart.toppings.push({ name, price });
+    cart.toppings.push({ name, price, count: 1 });
   } else {
     cart.toppings = cart.toppings.filter(t => t.name !== name);
   }
@@ -98,7 +98,7 @@ function selectDecoration(element, name, price) {
 
 function updatePrice() {
   const subtotal = cart.basePrice + 
-                  cart.toppings.reduce((sum, t) => sum + t.price, 0) + 
+                  cart.toppings.reduce((sum, t) => sum + t.price * (t.count || 1), 0) + 
                   cart.decorationPrice;
   const taxAmount = Math.floor(subtotal * 0.1);
   const total = subtotal + taxAmount;
@@ -111,7 +111,13 @@ function updatePrice() {
 function updatePreview() {
   const selectedItems = [];
   if (cart.base) selectedItems.push(cart.base);
-  cart.toppings.forEach(t => selectedItems.push(t.name));
+  cart.toppings.forEach(t => {
+    if (t.count > 1) {
+      selectedItems.push(`${t.name} x${t.count}`);
+    } else {
+      selectedItems.push(t.name);
+    }
+  });
   if (cart.decoration) selectedItems.push(cart.decoration);
 
   const selectedItemsDiv = document.getElementById('selectedItems');
@@ -134,7 +140,7 @@ function goToCheckout() {
   }
 
   const memo = document.getElementById('memo').value;
-  const items = [cart.base, ...cart.toppings.map(t => t.name)];
+  const items = [cart.base, ...cart.toppings.map(t => t.count > 1 ? `${t.name} x${t.count}` : t.name)];
   if (cart.decoration) items.push(cart.decoration);
 
   alert(
@@ -157,3 +163,41 @@ function setCompletionDate() {
 }
 
 window.addEventListener('load', setCompletionDate);
+
+function increaseTopping(name, price) {
+  const existing = cart.toppings.find(t => t.name === name);
+  if (existing) {
+    existing.count++;
+  } else {
+    cart.toppings.push({ name, price, count: 1 });
+  }
+  updateToppingDisplay(name);
+  updatePrice();
+  updatePreview();
+}
+
+function decreaseTopping(name) {
+  const existing = cart.toppings.find(t => t.name === name);
+  if (existing && existing.count > 0) {
+    existing.count--;
+    if (existing.count === 0) {
+      cart.toppings = cart.toppings.filter(t => t.name !== name);
+    }
+  }
+  updateToppingDisplay(name);
+  updatePrice();
+  updatePreview();
+}
+
+function updateToppingDisplay(name) {
+  const count = cart.toppings.find(t => t.name === name)?.count || 0;
+  const id = `count-${name}`;
+  document.getElementById(id).textContent = count;
+  // カードのselectedクラスを更新
+  const card = document.querySelector(`.topping-card:has(#${id})`);
+  if (count > 0) {
+    card.classList.add('selected');
+  } else {
+    card.classList.remove('selected');
+  }
+}

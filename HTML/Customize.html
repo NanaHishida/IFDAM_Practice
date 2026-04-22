@@ -104,90 +104,175 @@
         <div class="topping-section mb-4">
           <h2 class="section-title">トッピングを選択 (複数選択可)</h2>
           <div class="topping-grid">
-            <div class="topping-card" onclick="toggleTopping(this, 'フレッシュいちご3個', 300)">
+            <div class="topping-card">
               <div class="topping-image">🍓</div>
               <div class="topping-name">フレッシュいちご3個</div>
               <div class="topping-price">+¥300</div>
+              <div class="quantity-controls">
+                <button onclick="decreaseTopping('フレッシュいちご3個')">−</button>
+                <span class="quantity" id="count-フレッシュいちご3個">0</span>
+                <button onclick="increaseTopping('フレッシュいちご3個', 300)">+</button>
+              </div>
             </div> <!--.topping-card フレッシュいちご3個カード-->
-            <div class="topping-card" onclick="toggleTopping(this, 'ベリーミックス20g', 400)">
+            <div class="topping-card">
               <div class="topping-image">🍓🫐</div>
               <div class="topping-name">ベリーミックス20g</div>
               <div class="topping-price">+¥400</div>
+              <div class="quantity-controls">
+                <button onclick="decreaseTopping('ベリーミックス20g')">−</button>
+                <span class="quantity" id="count-ベリーミックス20g">0</span>
+                <button onclick="increaseTopping('ベリーミックス20g', 400)">+</button>
+              </div>
             </div> <!--.topping-card ベリーミックス20gカード-->
-            <div class="topping-card" onclick="toggleTopping(this, '栗3個', 150)">
+            <div class="topping-card">
               <div class="topping-image">🌰</div>
               <div class="topping-name">栗3個</div>
               <div class="topping-price">+¥150</div>
+              <div class="quantity-controls">
+                <button onclick="decreaseTopping('栗3個')">−</button>
+                <span class="quantity" id="count-栗3個">0</span>
+                <button onclick="increaseTopping('栗3個', 150)">+</button>
+              </div>
             </div> <!--.topping-card 栗3個カード-->
-            <div class="topping-card" onclick="toggleTopping(this, 'チョコレートソース', 200)">
+            <div class="topping-card">
               <div class="topping-image">🍫</div>
               <div class="topping-name">チョコレートソース</div>
               <div class="topping-price">+¥200</div>
+              <div class="quantity-controls">
+                <button onclick="decreaseTopping('チョコレートソース')">−</button>
+                <span class="quantity" id="count-チョコレートソース">0</span>
+                <button onclick="increaseTopping('チョコレートソース', 200)">+</button>
+              </div>
             </div> <!--.topping-card チョコレートソースカード-->
-            <div class="topping-card" onclick="toggleTopping(this, 'キャラメルソース', 200)">
+            <div class="topping-card">
               <div class="topping-image">🍯</div>
               <div class="topping-name">キャラメルソース</div>
               <div class="topping-price">+¥200</div>
+              <div class="quantity-controls">
+                <button onclick="decreaseTopping('キャラメルソース')">−</button>
+                <span class="quantity" id="count-キャラメルソース">0</span>
+                <button onclick="increaseTopping('キャラメルソース', 200)">+</button>
+              </div>
             </div> <!--.topping-card キャラメルソースカード-->
-            <div class="topping-card" onclick="toggleTopping(this, 'チーズソース', 200)">
+            <div class="topping-card">
               <div class="topping-image">🧀</div>
               <div class="topping-name">チーズソース</div>
               <div class="topping-price">+¥200</div>
+              <div class="quantity-controls">
+                <button onclick="decreaseTopping('チーズソース')">−</button>
+                <span class="quantity" id="count-チーズソース">0</span>
+                <button onclick="increaseTopping('チーズソース', 200)">+</button>
+              </div>
             </div> <!--.topping-card チーズソースカード-->
-            <div class="topping-card" onclick="toggleTopping(this, 'ホイップクリーム1周', 300)">
+            <div class="topping-card">
               <div class="topping-image">🍨</div>
               <div class="topping-name">ホイップクリーム1周</div>
               <div class="topping-price">+¥150</div>
+              <div class="quantity-controls">
+                <button onclick="decreaseTopping('ホイップクリーム1周')">−</button>
+                <span class="quantity" id="count-ホイップクリーム1周">0</span>
+                <button onclick="increaseTopping('ホイップクリーム1周', 150)">+</button>
+              </div>
             </div> <!--.topping-card ホイップクリーム1周カード-->
-            <div class="topping-card" onclick="toggleTopping(this, 'ナッツミックス10g', 250)">
+            <div class="topping-card">
               <div class="topping-image">🥜</div>
               <div class="topping-name">ナッツミックス10g</div>
               <div class="topping-price">+¥250</div>
+              <div class="quantity-controls">
+                <button onclick="decreaseTopping('ナッツミックス10g')">−</button>
+                <span class="quantity" id="count-ナッツミックス10g">0</span>
+                <button onclick="increaseTopping('ナッツミックス10g', 250)">+</button>
+              </div>
             </div> <!--.topping-card ナッツミックス10gカード-->
-            <div class="topping-card" onclick="toggleTopping(this, 'ココアパウダー', 100)">
+            <div class="topping-card">
               <div class="topping-image">☕</div>
-              <div class="topping-name">ココアパウダーc</div>
+              <div class="topping-name">ココアパウダー</div>
               <div class="topping-price">+¥100</div>
+              <div class="quantity-controls">
+                <button onclick="decreaseTopping('ココアパウダー')">−</button>
+                <span class="quantity" id="count-ココアパウダー">0</span>
+                <button onclick="increaseTopping('ココアパウダー', 100)">+</button>
+              </div>
             </div> <!--.topping-card ココアパウダーカード-->
-            <div class="topping-card" onclick="toggleTopping(this, 'マカロン2つ', 400)">
+            <div class="topping-card">
               <div class="topping-image">🟡</div>
               <div class="topping-name">マカロン2つ</div>
               <div class="topping-price">+¥400</div>
+              <div class="quantity-controls">
+                <button onclick="decreaseTopping('マカロン2つ')">−</button>
+                <span class="quantity" id="count-マカロン2つ">0</span>
+                <button onclick="increaseTopping('マカロン2つ', 400)">+</button>
+              </div>
             </div> <!--.topping-card マカロン2つカード-->
-            <div class="topping-card" onclick="toggleTopping(this, '金箔デコレーション1g', 500)">
+            <div class="topping-card">
               <div class="topping-image">✨</div>
               <div class="topping-name">金箔デコレーション1g</div>
               <div class="topping-price">+¥500</div>
+              <div class="quantity-controls">
+                <button onclick="decreaseTopping('金箔デコレーション1g')">−</button>
+                <span class="quantity" id="count-金箔デコレーション1g">0</span>
+                <button onclick="increaseTopping('金箔デコレーション1g', 500)">+</button>
+              </div>
             </div> <!--.topping-card 金箔デコレーション1gカード-->
-            <div class="topping-card" onclick="toggleTopping(this, '太ろうそく1本', 50)">
+            <div class="topping-card">
               <div class="topping-image">🕯️</div>
               <div class="topping-name">太ろうそく1本</div>
               <div class="topping-price">+¥50</div>
+              <div class="quantity-controls">
+                <button onclick="decreaseTopping('太ろうそく1本')">−</button>
+                <span class="quantity" id="count-太ろうそく1本">0</span>
+                <button onclick="increaseTopping('太ろうそく1本', 50)">+</button>
+              </div>
             </div> <!--.topping-card 太ろうそく1本カード-->
-            <div class="topping-card" onclick="toggleTopping(this, '細ろうそく1本', 15)">
+            <div class="topping-card">
               <div class="topping-image">🕯️</div>
               <div class="topping-name">細ろうそく1本</div>
               <div class="topping-price">+¥15</div>
+              <div class="quantity-controls">
+                <button onclick="decreaseTopping('細ろうそく1本')">−</button>
+                <span class="quantity" id="count-細ろうそく1本">0</span>
+                <button onclick="increaseTopping('細ろうそく1本', 15)">+</button>
+              </div>
             </div> <!--.topping-card 細ろうそく1本カード-->
-            <div class="topping-card" onclick="toggleTopping(this, 'お誕生日プレート1つ(日本語)', 250)">
+            <div class="topping-card">
               <div class="topping-image">🍫</div>
-              <div class="topping-name">お誕生日プレート1つ(日本語)</div>
+              <div class="topping-name">日本語お誕生日プレート1つ</div>
               <div class="topping-price">+¥250</div>
-            </div> <!--.topping-card お誕生日プレート1つ(日本語)カード-->
-            <div class="topping-card" onclick="toggleTopping(this, 'お誕生日プレート1つ(英語)', 250)">
+              <div class="quantity-controls">
+                <button onclick="decreaseTopping('日本語お誕生日プレート1つ')">−</button>
+                <span class="quantity" id="count-日本語お誕生日プレート1つ">0</span>
+                <button onclick="increaseTopping('日本語お誕生日プレート1つ', 250)">+</button>
+              </div>
+            </div> <!--.topping-card 日本語お誕生日プレート1つカード-->
+            <div class="topping-card">
               <div class="topping-image">🍫</div>
-              <div class="topping-name">お誕生日プレート1つ(英語)</div>
+              <div class="topping-name">英語お誕生日プレート1つ</div>
               <div class="topping-price">+¥250</div>
-            </div> <!--.topping-card お誕生日プレート1つ(英語)カード-->
-            <div class="topping-card" onclick="toggleTopping(this, 'サンタさん菓子1個', 300)">
+              <div class="quantity-controls">
+                <button onclick="decreaseTopping('英語お誕生日プレート1つ')">−</button>
+                <span class="quantity" id="count-英語お誕生日プレート1つ">0</span>
+                <button onclick="increaseTopping('英語お誕生日プレート1つ', 250)">+</button>
+              </div>
+            </div> <!--.topping-card 英語お誕生日プレート1つカード-->
+            <div class="topping-card">
               <div class="topping-image">🎅</div>
               <div class="topping-name">サンタさん菓子1個</div>
               <div class="topping-price">+¥300</div>
+              <div class="quantity-controls">
+                <button onclick="decreaseTopping('サンタさん菓子1個')">−</button>
+                <span class="quantity" id="count-サンタさん菓子1個">0</span>
+                <button onclick="increaseTopping('サンタさん菓子1個', 300)">+</button>
+              </div>
             </div> <!--.topping-card サンタさん菓子1個カード-->
-            <div class="topping-card" onclick="toggleTopping(this, 'トナカイさん菓子1個', 300)">
+            <div class="topping-card">
               <div class="topping-image">🦌</div>
               <div class="topping-name">トナカイさん菓子1個</div>
               <div class="topping-price">+¥300</div>
+              <div class="quantity-controls">
+                <button onclick="decreaseTopping('トナカイさん菓子1個')">−</button>
+                <span class="quantity" id="count-トナカイさん菓子1個">0</span>
+                <button onclick="increaseTopping('トナカイさん菓子1個', 300)">+</button>
+              </div>
             </div> <!--.topping-card トナカイさん菓子1個カード-->
           </div> <!--.topping-grid トッピング整列-->
         </div> <!--.topping-section トッピングセクション-->
