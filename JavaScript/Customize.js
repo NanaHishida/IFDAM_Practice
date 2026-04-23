@@ -91,6 +91,16 @@ function isCream(name) {
 
 // オプションを選ぶ処理
 function selectDecoration(element, name, price) {
+  // オプションの選択を解除する処理
+  if (element.classList.contains('selected')) {
+    element.classList.remove('selected');
+    cart.decoration = null;
+    cart.decorationPrice = 0;
+    updatePrice();
+    updatePreview();
+    return;
+  }
+
   // 前の選択を削除
   document.querySelectorAll('.topping-grid')[3].querySelectorAll('.topping-card').forEach(card => {
     card.classList.remove('selected');
