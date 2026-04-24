@@ -21,6 +21,11 @@ function selectBase(element, name, price) {
 
   // レアチーズケーキ、ザッハトルテの場合はクリームなしを選択し、他のクリームを無効化
   if (name === 'レアチーズケーキ' || name === 'ザッハトルテケーキ') {
+    // 他のクリームの選択を解除
+    document.querySelectorAll('.topping-grid')[1].querySelectorAll('.topping-card').forEach(card => {
+    card.classList.remove('selected');
+  });
+
     // クリームなしを選択
     const creamNone = document.getElementById('cream-none');
     creamNone.classList.add('selected');
@@ -28,7 +33,7 @@ function selectBase(element, name, price) {
     cart.toppings.push({ name: 'クリームなし', price: 0 });
 
     // 他のクリームを無効化
-    const creamIds = ['cream-whip', 'cream-choco', 'cream-cheese', 'cream-caramel', 'cream-marron', 'cream-custard', 'cream-berry'];
+    const creamIds = ['cream-whip', 'cream-choco', 'cream-cheese', 'cream-caramel', 'cream-marron', 'cream-custard', 'cream-berry', 'cream-none'];
     creamIds.forEach(id => {
       document.getElementById(id).classList.add('disabled');
     });
