@@ -181,10 +181,10 @@ function goToCheckout() {
 
 // ページ読込時に完成日を設定
 function setCompletionDate() {
-  const tomorrow = new Date();
-  tomorrow.setDate(tomorrow.getDate() + 1);
-  const month = tomorrow.getMonth() + 1;
-  const date = tomorrow.getDate();
+  const theDay = new Date();
+  theDay.setDate(theDay.getDate() + 3);
+  const month = theDay.getMonth() + 1;
+  const date = theDay.getDate();
   document.getElementById('completionDate').textContent = `${month}月${date}日`;
 }
 
