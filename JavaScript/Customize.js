@@ -7,6 +7,8 @@ let cart = {
   decorationPrice: 0,
 };
 
+const storage = localStorage;
+
 // ベースを選ぶ処理
 function selectBase(element, name, price) {
   // 前の選択を削除
@@ -173,6 +175,10 @@ function goToCheckout() {
   const items = [cart.base, ...cart.toppings.map(t => t.count > 1 ? `${t.name} x${t.count}` : t.name)];
   if (cart.decoration) items.push(cart.decoration);
 
+  // ストレージにデータを保存する処理
+  storage.memo = memo;
+  storage.items = JSON.stringify(items);
+
   // 選択内容を確認する処理
   alert(
     'お会計へ進みます\n\n' +
@@ -182,6 +188,10 @@ function goToCheckout() {
     (memo ? `メモ: ${memo}\n\n` : '') +
     '合計: ' + document.getElementById('total').textContent
   );
+
+  // (今後ログインかお会計に飛ぶ処理になる)
+  // お会計画面に飛ぶ処理
+  location.href = 'Checkout.html';
 }
 
 // ページ読込時に完成日を設定
