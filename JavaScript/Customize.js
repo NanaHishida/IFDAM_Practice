@@ -205,6 +205,89 @@ function goToCheckout() {
   location.href = 'Checkout.html';
 }
 
+// localStorageからチェックアウト情報を復元
+function restoreCheckoutData() {
+  const checkoutData = JSON.parse(storage.getItem('checkoutData'));
+  
+  if (!checkoutData) {
+    return; // データがない場合は何もしない
+  }
+
+  // cart オブジェクトを復元
+  cart.base = checkoutData.base;
+  cart.basePrice = checkoutData.basePrice;
+  cart.toppings = checkoutData.toppings;
+  cart.decoration = checkoutData.decoration;
+  cart.decorationPrice = checkoutData.decorationPrice;
+
+  // ベースの選択状態を復元
+  if (cart.base) {
+    const baseCards = document.querySelectorAll('.topping-grid')[0].querySelectorAll('.topping-card');
+    baseCards.forEach(card => {
+      const baseName = card.querySelector('.topping-name').textContent;
+      if (baseName === cart.base) {
+        card.classList.add('selected');
+      }
+    });
+  }
+
+  // トッピング（クリーム）の選択状態を復元
+  if (cart.toppings && cart.toppings.length > 0) {
+    const creamCards = document.querySelectorAll('.topping-grid')[1].querySelectorAll('.topping-card');
+    creamCards.forEach(card => {
+      const toppingName = card.querySelector('.topping-name').textContent;
+      if (cart.toppings.some(t => t.name === toppingName)) {
+        card.classList.add('selected');
+      }
+    });
+  }
+
+  // レアチーズケーキまたはザッハトルテの場合、クリームを無効化
+  if (cart.base === 'レアチーズケーキ' || cart.base === 'ザッハトルテケーキ') {
+    const creamIds = ['cream-whip', 'cream-choco', 'cream-cheese', 'cream-caramel', 'cream-marron', 'cream-custard', 'cream-berry', 'cream-none'];
+    creamIds.forEach(id => {
+      document.getElementById(id).classList.add('disabled');
+    });
+  }
+
+  // トッピング（数量付き）の選択状態と数量を復元
+  if (cart.toppings && cart.toppings.length > 0) {
+    const toppingCards = document.querySelectorAll('.topping-grid')[2].querySelectorAll('.topping-card');
+    toppingCards.forEach(card => {
+      const toppingName = card.querySelector('.topping-name').textContent;
+      const foundTopping = cart.toppings.find(t => t.name === toppingName);
+      if (foundTopping && foundTopping.count > 0) {
+        card.classList.add('selected');
+        const countElement = document.getElementById(`count-${toppingName}`);
+        if (countElement) {
+          countElement.textContent = foundTopping.count;
+        }
+      }
+    });
+  }
+
+  // デコレーションの選択状態を復元
+  if (cart.decoration) {
+    const decorationCards = document.querySelectorAll('.topping-grid')[3].querySelectorAll('.topping-card');
+    decorationCards.forEach(card => {
+      const decorationName = card.querySelector('.topping-name').textContent;
+      if (decorationName === cart.decoration) {
+        card.classList.add('selected');
+      }
+    });
+  }
+
+  // メモを復元
+  const memoElement = document.getElementById('memo');
+  if (memoElement && checkoutData.memo) {
+    memoElement.value = checkoutData.memo;
+  }
+
+  // UI更新
+  updatePrice();
+  updatePreview();
+}
+
 // ページ読込時に完成日を設定
 function setCompletionDate() {
   const theDay = new Date();
@@ -213,6 +296,12 @@ function setCompletionDate() {
   const date = theDay.getDate();
   document.getElementById('completionDate').textContent = `${month}月${date}日`;
 }
+
+// ページ読み込み完了時にデータ復元と日付設定を実行
+window.addEventListener('DOMContentLoaded', () => {
+  restoreCheckoutData();
+  setCompletionDate();
+});
 
 window.addEventListener('load', setCompletionDate);
 
