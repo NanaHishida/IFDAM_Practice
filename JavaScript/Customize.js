@@ -175,10 +175,6 @@ function goToCheckout() {
   const items = [cart.base, ...cart.toppings.map(t => t.count > 1 ? `${t.name} x${t.count}` : t.name)];
   if (cart.decoration) items.push(cart.decoration);
 
-  // ストレージにデータを保存する処理
-  storage.memo = memo;
-  storage.items = JSON.stringify(items);
-
   // 選択内容を確認する処理
   alert(
     'お会計へ進みます\n\n' +
@@ -188,6 +184,21 @@ function goToCheckout() {
     (memo ? `メモ: ${memo}\n\n` : '') +
     '合計: ' + document.getElementById('total').textContent
   );
+
+  // localStorageに選択情報を保存
+  const checkoutData = {
+    base: cart.base,
+    basePrice: cart.basePrice,
+    toppings: cart.toppings,
+    decoration: cart.decoration,
+    decorationPrice: cart.decorationPrice,
+    memo: memo,
+    subtotal: parseInt(document.getElementById('subtotal').textContent.replace(/[¥,]/g, '')),
+    tax: parseInt(document.getElementById('tax').textContent.replace(/[¥,]/g, '')),
+    total: parseInt(document.getElementById('total').textContent.replace(/[¥,]/g, ''))
+  };
+  
+  storage.setItem('checkoutData', JSON.stringify(checkoutData));
 
   // (今後ログインかお会計に飛ぶ処理になる)
   // お会計画面に飛ぶ処理
