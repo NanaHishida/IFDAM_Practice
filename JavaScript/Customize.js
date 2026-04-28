@@ -288,6 +288,12 @@ function restoreCheckoutData() {
   updatePreview();
 }
 
+// 戻るボタンの処理
+document.getElementById('back').addEventListener('click', () => {
+  history.back();
+});
+
+
 // ページ読込時に完成日を設定
 function setCompletionDate() {
   const theDay = new Date();

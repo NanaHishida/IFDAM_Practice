@@ -30,6 +30,11 @@ header {
   }
 }
 
+/*戻るボタン*/
+.point:hover {
+  cursor: pointer;
+}
+
 /* トッピング・オプションセクション */
 .topping-section {
   background-color: #fff;
