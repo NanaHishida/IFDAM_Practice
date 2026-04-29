@@ -311,6 +311,24 @@ document.getElementById('back').addEventListener('click', () => {
   history.back();
 });
 
+// リセットボタンの処理
+function resetCustomize () {
+  const Cards = document.querySelectorAll('.topping-card');
+  Cards.forEach(card => {if (card.classList.contains('selected')) {
+    card.classList.remove('selected');}
+  });
+  cart = {
+    base: null,
+    basePrice: 0,
+    toppings: [],
+    decoration: null,
+    decorationPrice: 0,
+  }
+  storage.removeItem('checkoutData');
+  updatePrice();
+  updatePreview();
+}
+
 
 // ページ読込時に完成日を設定
 function setCompletionDate() {

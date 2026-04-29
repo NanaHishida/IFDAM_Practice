@@ -186,6 +186,11 @@ header {
   margin-bottom: 1.5rem;
 }
 
+#reset {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
 /* 価格情報 */
 .price-info {
   background-color: #f8f9fa;
