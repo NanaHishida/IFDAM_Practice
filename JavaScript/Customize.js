@@ -170,6 +170,18 @@ function goToCheckout() {
     return;
   }
 
+  // くまちゃんセットを選択している場合、クリームが必要
+  if (cart.decoration === 'くまちゃんセット') {
+    const creamItems = cart.toppings.filter(t => isCream(t.name));
+    const hasNoCream = creamItems.length === 0;
+    const hasCreamNone = creamItems.some(t => t.name === 'クリームなし');
+
+    if (hasNoCream || hasCreamNone) {
+      alert('くまちゃんセットをご注文の場合、クリームを1つ以上選択してください。クリームなしではお会計に進めません。');
+      return;
+    }
+  }
+
   // メモと選択したアイテムを引き継ぐ処理
   const memo = document.getElementById('memo').value;
   const items = [cart.base, ...cart.toppings.map(t => t.count > 1 ? `${t.name} x${t.count}` : t.name)];
