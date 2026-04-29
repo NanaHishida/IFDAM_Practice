@@ -213,6 +213,12 @@ function goToCheckout() {
   storage.setItem('checkoutData', JSON.stringify(checkoutData));
 
   // (今後ログインかお会計に飛ぶ処理になる)
+  // if (longin) {
+  //  location.href = 'Checkout.html';
+  // } else {
+  //  location.href = 'login.html'
+  // }
+  // 
   // お会計画面に飛ぶ処理
   location.href = 'Checkout.html';
 }
