@@ -135,6 +135,74 @@ function updatePrice() {
   document.getElementById('total').textContent = '¥' + total.toLocaleString();
 }
 
+// プレビューに表示する写真を取得する処理
+function getPreviewImages() {
+  const images = [];
+  const toppingGrids = document.querySelectorAll('.topping-grid');
+  const baseGrid = toppingGrids[0];
+  const creamGrid = toppingGrids[1];
+  const toppingGrid = toppingGrids[2];
+  const decorationGrid = toppingGrids[3];
+
+  if (baseGrid) {
+    const baseCard = baseGrid.querySelector('.topping-card.selected');
+    if (baseCard) {
+      const imageName = baseCard.querySelector('.topping-name').textContent.trim().replace(/\s+/g, '-');
+      images.push({
+        type: 'base',
+        name: imageName,
+        order: 1
+      });
+    }
+  }
+
+  if (creamGrid) {
+    let creamOrder = 2;
+    creamGrid.querySelectorAll('.topping-card.selected').forEach(card => {
+      const imageName = card.querySelector('.topping-name').textContent.trim().replace(/\s+/g, '-');
+      images.push({
+        type: 'cream',
+        name: imageName,
+        order: creamOrder
+      });
+      creamOrder += 1;
+    });
+  }
+
+  if (toppingGrid) {
+    let toppingOrder = creamOrder || 2;
+    toppingGrid.querySelectorAll('.topping-card').forEach(card => {
+      const countEl = card.querySelector('.quantity');
+      const count = countEl ? parseInt(countEl.textContent, 10) || 0 : 0;
+      if (count > 0) {
+        const imageName = card.querySelector('.topping-name').textContent.trim().replace(/\s+/g, '-');
+        for (let i = 0; i < Math.min(count, 3); i += 1) {
+          images.push({
+            type: 'topping',
+            name: imageName,
+            order: toppingOrder
+          });
+          toppingOrder += 1;
+        }
+      }
+    });
+  }
+
+  if (decorationGrid) {
+    const decorationCard = decorationGrid.querySelector('.topping-card.selected');
+    if (decorationCard) {
+      const imageName = decorationCard.querySelector('.topping-name').textContent.trim().replace(/\s+/g, '-');
+      images.push({
+        type: 'decoration',
+        name: imageName,
+        order: 100
+      });
+    }
+  }
+
+  return images;
+}
+
 // プレビューを更新する処理
 function updatePreview() {
   const selectedItems = [];
@@ -150,6 +218,17 @@ function updatePreview() {
 
   const selectedItemsDiv = document.getElementById('selectedItems');
   const selectedItemsList = document.getElementById('selectedItemsList');
+  const previewImage = document.getElementById('previewImage');
+  const images = getPreviewImages();
+
+  // プレビュー画像に写真を重ねて表示
+  if (images.length > 0) {
+    previewImage.innerHTML = images.map((img, idx) => 
+      `<img src="/images/${img.type}/${img.name}.jpg" class="preview-layer preview-${img.type}" alt="${img.name}" style="z-index: ${img.order};" onerror="this.style.display='none'" />`
+    ).join('');
+  } else {
+    previewImage.innerHTML = '<div class="preview-placeholder">🎂</div>';
+  }
 
   // カスタマイズリストを表示する処理
   if (selectedItems.length > 0) {
