@@ -394,20 +394,24 @@ document.getElementById('back').addEventListener('click', () => {
 
 // リセットボタンの処理
 function resetCustomize () {
-  const Cards = document.querySelectorAll('.topping-card');
-  Cards.forEach(card => {if (card.classList.contains('selected')) {
-    card.classList.remove('selected');}
-  });
-  cart = {
-    base: null,
-    basePrice: 0,
-    toppings: [],
-    decoration: null,
-    decorationPrice: 0,
+  if (confirm('カスタマイズを全てリセットしますか？')) {
+    const Cards = document.querySelectorAll('.topping-card');
+    Cards.forEach(card => {if (card.classList.contains('selected')) {
+      card.classList.remove('selected');}
+    });
+    cart = {
+      base: null,
+      basePrice: 0,
+      toppings: [],
+      decoration: null,
+      decorationPrice: 0,
+    }
+    storage.removeItem('checkoutData');
+    updatePrice();
+    updatePreview();
+  } else {
+    return;
   }
-  storage.removeItem('checkoutData');
-  updatePrice();
-  updatePreview();
 }
 
 
