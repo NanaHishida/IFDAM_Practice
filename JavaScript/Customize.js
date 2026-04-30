@@ -225,9 +225,11 @@ function updatePreview() {
 
   // プレビュー画像に写真を重ねて表示
   if (images.length > 0) {
-    previewImage.innerHTML = images.map((img, idx) => 
-      `<img src="/images/${img.type}/${img.name}.jpg" class="preview-layer preview-${img.type}" alt="${img.name}" style="z-index: ${img.order};" onerror="this.style.display='none'" />`
-    ).join('');
+    //previewImage.innerHTML = images.map((img, idx) => 
+      //`<img src="/images/${img.type}/${img.name}.jpg" class="preview-layer preview-${img.type}" alt="${img.name}" style="z-index: ${img.order};" onerror="this.style.display='none'" />`
+    //).join('');
+    // 下は画像を入れることになったら消し、上を復活させる
+    previewImage.innerHTML = '<div class="preview-placeholder">🎂</div>';
   } else {
     previewImage.innerHTML = '<div class="preview-placeholder">🎂</div>';
   }
