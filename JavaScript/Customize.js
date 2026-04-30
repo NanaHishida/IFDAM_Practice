@@ -138,6 +138,9 @@ function updatePrice() {
 // プレビューに表示する写真を取得する処理
 function getPreviewImages() {
   const images = [];
+  let creamOrder = 2;
+  let toppingOrder = 2;
+
   const toppingGrids = document.querySelectorAll('.topping-grid');
   const baseGrid = toppingGrids[0];
   const creamGrid = toppingGrids[1];
@@ -157,7 +160,6 @@ function getPreviewImages() {
   }
 
   if (creamGrid) {
-    let creamOrder = 2;
     creamGrid.querySelectorAll('.topping-card.selected').forEach(card => {
       const imageName = card.querySelector('.topping-name').textContent.trim().replace(/\s+/g, '-');
       images.push({
@@ -167,10 +169,10 @@ function getPreviewImages() {
       });
       creamOrder += 1;
     });
+    toppingOrder = creamOrder;
   }
 
   if (toppingGrid) {
-    let toppingOrder = creamOrder || 2;
     toppingGrid.querySelectorAll('.topping-card').forEach(card => {
       const countEl = card.querySelector('.quantity');
       const count = countEl ? parseInt(countEl.textContent, 10) || 0 : 0;
