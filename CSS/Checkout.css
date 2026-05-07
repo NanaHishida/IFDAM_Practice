@@ -210,6 +210,10 @@ body {
   grid-template-columns: 1fr 1fr;
 }
 
+.payment-row .quarter {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
 .payment-row label {
   font-size: 0.95rem;
   color: #495057;
