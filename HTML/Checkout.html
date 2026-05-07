@@ -5,16 +5,76 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>お会計画面</title>
   <link rel="stylesheet" href="../CSS/bootstrap.css">
-  <style rel="stylesheet" href="../CSS/Checkout.css"></style>
+  <link rel="stylesheet" href="../CSS/Checkout.css">
 </head>
 <body>
-  <div class="container">
-    <h1>お会計</h1>
-    <div id="orderDetails">
-      <p>注文情報を読み込んでいます...</p>
+    <div class="checkout-header">
+      <div class="header-left">
+        <div class="logo">CakeFromZer0</div>
+        <h1>お会計</h1>
+        <a id="back" class="text-decoration-none point"><<戻る</a>
+      </div>
     </div>
-    <button id="back">戻る</button>
-  </div>
+
+  <main class="checkout-page container">
+    <div class="checkout-grid">
+      <section class="checkout-panel preview-panel">
+        <div class="panel-title">プレビュー</div>
+        <div class="preview-card">
+          <div class="preview-image" id="previewImage">プレビューがありません</div>
+          <div class="memo-box">
+            <div class="memo-label">メモ</div>
+            <textarea id="memoPreview" readonly placeholder="Customize画面で入力されたメモが表示されます。"></textarea>
+          </div>
+        </div>
+
+        <div class="order-summary-card" id="orderDetails">
+          <div class="panel-title">注文内容</div>
+          <div class="order-loading">注文情報を読み込んでいます...</div>
+        </div>
+
+        <div class="pickup-card">
+          <div class="panel-title">お引き渡し希望日</div>
+          <div class="pickup-selectors">
+            <select id="pickupMonth" class="form-select"></select>
+            <select id="pickupDay" class="form-select"></select>
+            <button id="confirmPickup" class="btn btn-primary btn-sm">確定</button>
+          </div>
+          <div class="picked-date-wrap">
+            <span>確定日:</span>
+            <span id="pickedDate" class="picked-date">未設定</span>
+          </div>
+          <div class="earliest-date-wrap">
+            <span>最早完成日:</span>
+            <strong id="earliestDate">--月--日</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="checkout-panel payment-panel">
+        <div class="panel-title">決済方法</div>
+        <div class="payment-methods">
+          <label class="payment-option">
+            <input type="radio" name="paymentMethod" value="card" checked>
+            カード
+          </label>
+          <label class="payment-option">
+            <input type="radio" name="paymentMethod" value="emoney">
+            電子マネー
+          </label>
+          <label class="payment-option">
+            <input type="radio" name="paymentMethod" value="cash">
+            現金 (お引き渡し時)
+          </label>
+        </div>
+
+        <div id="paymentDetails" class="payment-details"></div>
+
+        <button id="placeOrder" class="btn btn-success btn-lg">注文を完了する</button>
+      </section>
+    </div>
+  </main>
+
   <script src="../JavaScript/Checkout.js"></script>
 </body>
 </html>
