@@ -49,7 +49,7 @@ loginForm.addEventListener('submit', (e) => {
 
   alert(`ログインしました。\nメールアドレス: ${email}`);
   localStorage.setItem('userEmail', email);
-  location.href = 'index.html';
+  history.back();
 });
 
 signupForm.addEventListener('submit', (e) => {
