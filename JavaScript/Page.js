@@ -2,6 +2,8 @@ const menuToggle = document.getElementById('menuToggle');
 const menuPanel = document.getElementById('menuPanel');
 const menuClose = document.getElementById('menuClose');
 
+const login = localStorage.getItem('userEmail');
+
 function toggleMenu() {
   const isOpen = menuPanel.classList.toggle('show');
   menuToggle.classList.toggle('open', isOpen);

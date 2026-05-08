@@ -8,6 +8,7 @@ let cart = {
 };
 
 const storage = localStorage;
+const login = storage.getItem('userEmail');
 
 // ベースを選ぶ処理
 function selectBase(element, name, price) {

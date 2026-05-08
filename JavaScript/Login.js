@@ -85,7 +85,8 @@ signupForm.addEventListener('submit', (e) => {
   }
 
   alert(`アカウントを作成しました。\nメールアドレス: ${email}\n\nログイン画面に戻ります。`);
-  localStorage.setItem('userEmail', email);
+  // 以下はデータベースに変更される
+  //localStorage.setItem('userEmail', email);
   switchToLogin();
   document.getElementById('loginEmail').value = email;
   document.getElementById('loginPassword').value = '';
