@@ -398,9 +398,14 @@ document.getElementById('back').addEventListener('click', () => {
 // ログインボタンの処理
 const LoginButton = document.getElementById('login');
 if (login) {
-  LoginButton.innerHTML = '<a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">アカウント</a><ul class="dropdown-menu"><li><p class="dropdown-item"><span id="userPic"></span>⚪︎⚪︎さん</p></li><li><p id="logout" onclick="logout()">ログアウトする</p></li></ul>';
+  LoginButton.innerHTML = '<a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">アカウント</a><ul class="dropdown-menu"><li><p class="dropdown-item"><span id="userPic"></span>⚪︎⚪︎さん</p></li><li><p id="logout" class="dropdown-item" onclick="logout()">ログアウトする</p></li></ul>';
 } else {
   LoginButton.innerHTML = '<button class="btn btn-outline-primary btn-sm" onclick="gotoLogin()">ログイン</button>';
+}
+
+function logout() {
+  localStorage.removeItem("login");
+  location.reload();
 }
 
 // リセットボタンの処理
