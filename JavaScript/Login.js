@@ -48,7 +48,8 @@ loginForm.addEventListener('submit', (e) => {
   }
 
   alert(`ログインしました。\nメールアドレス: ${email}`);
-  localStorage.setItem('userEmail', email);
+  // 以下はメールアドレスじゃなくてログイン情報自体に変える
+  localStorage.setItem('login', email);
   history.back();
 });
 
