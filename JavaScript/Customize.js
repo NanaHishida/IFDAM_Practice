@@ -395,9 +395,13 @@ document.getElementById('back').addEventListener('click', () => {
   history.back();
 });
 
-document.getElementById('login').addEventListener('click', () => {
-  location.href = "Login.html";
-})
+// ログインボタンの処理
+const LoginButton = document.getElementById('login');
+if (login) {
+  LoginButton.innerHTML = '<a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">アカウント</a><ul class="dropdown-menu"><li><p class="dropdown-item"><span id="userPic"></span>⚪︎⚪︎さん</p></li><li><p id="logout" onclick="logout()">ログアウトする</p></li></ul>';
+} else {
+  LoginButton.innerHTML = '<button class="btn btn-outline-primary btn-sm" onclick="gotoLogin()">ログイン</button>';
+}
 
 // リセットボタンの処理
 function resetCustomize () {
