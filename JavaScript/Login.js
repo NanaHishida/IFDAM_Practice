@@ -47,9 +47,15 @@ loginForm.addEventListener('submit', (e) => {
     return;
   }
 
+  // データベースでの処理
+  // データベースと照合するか if not, return
+  // データベース上のログイン情報を持ってくる
+  // const name = データベース上の名前;
+  // const OrderHistory = データベース上の注文履歴;
+
   alert(`ログインしました。\nメールアドレス: ${email}`);
   // 以下はメールアドレスじゃなくてログイン情報自体に変える
-  localStorage.setItem('login', email);
+  localStorage.setItem('login', 'yes');
   history.back();
 });
 
