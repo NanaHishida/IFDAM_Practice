@@ -394,6 +394,10 @@ document.getElementById('back').addEventListener('click', () => {
   history.back();
 });
 
+document.getElementById('login').addEventListener('click', () => {
+  location.href = "Login.html";
+})
+
 // リセットボタンの処理
 function resetCustomize () {
   if (confirm('カスタマイズを全てリセットしますか？')) {
