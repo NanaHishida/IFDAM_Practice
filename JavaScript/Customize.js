@@ -8,6 +8,7 @@ let cart = {
 };
 
 const storage = localStorage;
+const loginyn = document.cookie.indexOf('login') !== -1;
 
 // ベースを選ぶ処理
 function selectBase(element, name, price) {
@@ -295,15 +296,12 @@ function goToCheckout() {
   
   storage.setItem('checkoutData', JSON.stringify(checkoutData));
 
-  // (今後ログインかお会計に飛ぶ処理になる)
-  // if (longin) {
-  //  location.href = 'Checkout.html';
-  // } else {
-  //  location.href = 'login.html'
-  // }
-  // 
-  // お会計画面に飛ぶ処理
-  location.href = 'Checkout.html';
+  if (loginyn) {
+    location.href = 'Checkout.html';
+  } else {
+    alert('ログインが必要です');
+    location.href = 'login.html'
+  }
 }
 
 // localStorageからチェックアウト情報を復元
@@ -396,7 +394,7 @@ document.getElementById('back').addEventListener('click', () => {
 
 // ログインボタンの処理
 const LoginButton = document.getElementById('login');
-if (document.cookie.indexOf('login') !== -1) {
+if (loginyn) {
   LoginButton.innerHTML = '<a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">アカウント</a><ul class="dropdown-menu"><li><p class="dropdown-item"><span id="userPic"></span>⚪︎⚪︎さん</p></li><li><p id="logout" class="dropdown-item" onclick="logout()">ログアウトする</p></li></ul>';
 } else {
   LoginButton.innerHTML = '<button class="btn btn-outline-primary btn-sm" onclick="gotoLogin()">ログイン</button>';
