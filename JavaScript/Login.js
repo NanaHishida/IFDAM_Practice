@@ -54,8 +54,7 @@ loginForm.addEventListener('submit', (e) => {
   // const OrderHistory = データベース上の注文履歴;
 
   alert(`ログインしました。\nメールアドレス: ${email}`);
-  // 以下はメールアドレスじゃなくてログイン情報自体に変える
-  localStorage.setItem('login', 'yes');
+  document.cookie = 'login="y"; max-age=36000';
   history.back();
 });
 
@@ -92,8 +91,6 @@ signupForm.addEventListener('submit', (e) => {
   }
 
   alert(`アカウントを作成しました。\nメールアドレス: ${email}\n\nログイン画面に戻ります。`);
-  // 以下はデータベースに変更される
-  //localStorage.setItem('userEmail', email);
   switchToLogin();
   document.getElementById('loginEmail').value = email;
   document.getElementById('loginPassword').value = '';

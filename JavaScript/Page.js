@@ -2,7 +2,11 @@ const menuToggle = document.getElementById('menuToggle');
 const menuPanel = document.getElementById('menuPanel');
 const menuClose = document.getElementById('menuClose');
 
-const login = localStorage.getItem('login');
+const login = (t=> {
+  if (document.cookie.indexOf('login') !== -1) {
+    t = yes;
+  }
+});
 
 function toggleMenu() {
   const isOpen = menuPanel.classList.toggle('show');
