@@ -2,11 +2,14 @@ const menuToggle = document.getElementById('menuToggle');
 const menuPanel = document.getElementById('menuPanel');
 const menuClose = document.getElementById('menuClose');
 
-const login = (t=> {
-  if (document.cookie.indexOf('login') !== -1) {
-    t = yes;
-  }
-});
+const LoginButton = document.getElementById('login');
+const loginyn = document.cookie.indexOf('login') !== -1;
+
+if (loginyn) {
+  LoginButton.innerHTML = '<a href="Account.html">アカウント</a>';
+} else {
+  LoginButton.innerHTML = '<a href="Login.html">ログインする</a>';
+}
 
 function toggleMenu() {
   const isOpen = menuPanel.classList.toggle('show');
