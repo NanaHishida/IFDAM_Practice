@@ -1,0 +1,85 @@
+body {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 55%, #f8f9fa 100%);
+  color: #212529;
+  font-family: 'Arial', sans-serif;
+}
+
+.complete-page {
+  max-width: 760px;
+  margin: 3rem auto 5rem;
+  padding: 0 20px;
+}
+
+.complete-card {
+  background-color: #ffffff;
+  border-radius: 24px;
+  padding: 44px 30px;
+  box-shadow: 0 18px 40px rgba(34, 69, 118, 0.08);
+  text-align: center;
+}
+
+.complete-icon {
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 24px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #d4f1e4;
+  color: #1f8a5b;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.complete-card h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #1f2a44;
+}
+
+.complete-text {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.complete-subtext {
+  font-size: 0.98rem;
+  color: #6c757d;
+  margin-bottom: 32px;
+}
+
+.receipt-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 240px;
+  padding: 14px 24px;
+  border-radius: 999px;
+  font-size: 1rem;
+}
+
+.checkout-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1300px;
+  margin: 1rem auto;
+  padding: 0 20px;
+}
+
+.checkout-header .logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0d6efd;
+}
+
+.checkout-header h1 {
+  margin: 8px 0 0;
+  font-size: 2rem;
+}
+
+.point:hover {
+  cursor: pointer;
+}

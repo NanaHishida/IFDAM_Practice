@@ -202,13 +202,9 @@ function placeOrder() {
   const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
   const paymentLabel = paymentMethod === 'card' ? 'カード' : paymentMethod === 'emoney' ? '電子マネー' : '現金';
 
-  alert(`注文を確定しました。\n\nお引き渡し日: ${month}月${day}日\n決済方法: ${paymentLabel}`);
+  localStorage.setItem('completedPickupDate', `${month}月${day}日`);
   localStorage.removeItem('checkoutData');
-  const placeOrderButton = document.getElementById('placeOrder');
-  if (placeOrderButton) {
-    placeOrderButton.textContent = '注文完了';
-    placeOrderButton.disabled = true;
-  }
+  window.location.href = 'Complete.html';
 }
 
 window.addEventListener('DOMContentLoaded', () => {
