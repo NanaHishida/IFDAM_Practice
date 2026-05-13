@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>アカウント</title>
+  <link rel="stylesheet" href="../CSS/bootstrap.css">
+  <link rel="stylesheet" href="../CSS/Account.css">
+</head>
+<body>
+  <header class="d-flex align-items-center sticky-top justify-content-between py-4 container pb-3 border-bottom">
+    <h1 class="h4 fw-bold text-primary mb-0">
+      <a href="index.html" class="text-decoration-none text-primary">CakeFromZer0</a>
+    </h1>
+    <button id="menuToggle" class="hamburger-btn" type="button" aria-label="メニューを開く">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </header>
+
+  <div class="menu-panel" id="menuPanel" aria-hidden="true">
+    <div class="menu-content">
+      <a href="Account.html">アカウント</a>
+      <a href="#" id="orderHistoryLink">注文履歴</a>
+      <a href="#" id="logoutLink">ログアウト</a>
+    </div>
+  </div>
+
+  <main class="container py-4">
+    <div class="account-card">
+      <div class="account-tabs">
+        <button class="tab-button active" data-tab="account">アカウント</button>
+        <button class="tab-button" data-tab="history">注文履歴</button>
+      </div>
+
+      <div class="tab-content active" id="accountTab">
+        <div class="account-info">
+          <div class="info-item">
+            <label>名前:</label>
+            <span id="userName">山田 太郎</span>
+          </div>
+          <div class="info-item">
+            <label>メールアドレス:</label>
+            <span id="userEmail">yamada@example.com</span>
+          </div>
+          <div class="info-item">
+            <label>パスワード:</label>
+            <span id="userPassword">**********</span>
+          </div>
+          <button class="btn btn-primary mt-3" id="editAccountBtn">アカウント情報を変更する</button>
+        </div>
+      </div>
+
+      <div class="tab-content" id="historyTab">
+        <div class="order-history">
+          <div class="order-item">
+            <div class="order-header">
+              <span class="order-id">注文ID: ABC123456789</span>
+              <span class="pickup-date">引き渡し日: 5月15日</span>
+            </div>
+            <div class="order-preview">
+              <div class="preview-image">プレビューイメージ</div>
+            </div>
+            <a href="#" class="btn btn-outline-primary btn-sm download-link">受け取り票をダウンロードする</a>
+          </div>
+          <div class="order-item">
+            <div class="order-header">
+              <span class="order-id">注文ID: DEF987654321</span>
+              <span class="pickup-date">引き渡し日: 5月20日</span>
+            </div>
+            <div class="order-preview">
+              <div class="preview-image">プレビューイメージ</div>
+            </div>
+            <a href="#" class="btn btn-outline-primary btn-sm download-link">受け取り票をダウンロードする</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../JavaScript/Page.js"></script>
+  <script src="../JavaScript/Account.js"></script>
+</body>
+</html>
