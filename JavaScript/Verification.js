@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // 認証処理（例: サーバーに送信）
       alert('認証が完了しました。');
-      window.location.href = 'Account.html'; // 認証後にアカウントページへ
+      window.location.href = 'VerificationDone.html'; // 認証後に完了画面へ
     });
   }
 });
