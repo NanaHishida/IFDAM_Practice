@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>メールアドレス認証</title>
+  <link rel="stylesheet" href="../CSS/bootstrap.css">
+  <link rel="stylesheet" href="../CSS/Verification.css">
+</head>
+<body>
+  <div class="verification-container">
+    <div class="verification-card">
+      <div class="logo">CakeFromZer0</div>
+
+      <p class="verification-message">メールアドレス認証の番号が送信されました</p>
+
+      <form id="verificationForm" class="verification-form">
+        <div class="form-group">
+          <label for="verificationCode">番号</label>
+          <input type="text" id="verificationCode" class="form-control" placeholder="123456" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">認証する</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="../JavaScript/Verification.js"></script>
+</body>
+</html>
