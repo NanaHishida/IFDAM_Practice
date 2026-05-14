@@ -174,3 +174,55 @@
   border-radius: 1px;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
+
+.edit-account-card {
+  max-width: 620px;
+  margin-top: 2rem;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 0.75rem 1.5rem rgba(33, 37, 41, 0.08);
+}
+
+.edit-account-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.back-button {
+  color: #495057;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.back-button:hover {
+  color: #0d6efd;
+}
+
+.edit-account-form {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.edit-account-form .form-group label {
+  font-weight: 600;
+  color: #495057;
+  margin-bottom: 0.5rem;
+}
+
+.edit-account-form .form-control {
+  border-radius: 0.75rem;
+  border: 1px solid #ced4da;
+  padding: 0.95rem 1rem;
+  background-color: #f8f9fa;
+}
+
+.edit-account-form .form-control:focus {
+  outline: none;
+  border-color: #0d6efd;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.08);
+}

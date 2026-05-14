@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>会員情報変更</title>
+  <link rel="stylesheet" href="../CSS/bootstrap.css">
+  <link rel="stylesheet" href="../CSS/Account.css">
+</head>
+<body>
+  <header class="d-flex align-items-center sticky-top justify-content-between py-4 container pb-3 border-bottom">
+    <h1 class="h4 fw-bold text-primary mb-0">
+      <a href="index.html" class="text-decoration-none text-primary">CakeFromZer0</a>
+    </h1>
+    <button id="menuToggle" class="hamburger-btn" type="button" aria-label="メニューを開く">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </header>
+
+  <div class="menu-panel" id="menuPanel" aria-hidden="true">
+    <div class="menu-content">
+      <button id="menuClose" class="btn btn-outline-secondary btn-sm mb-3">閉じる</button>
+      <a href="Account.html">アカウント</a>
+      <a href="#" id="orderHistoryLink">注文履歴</a>
+      <a href="#" id="logoutLink">ログアウト</a>
+    </div>
+  </div>
+
+  <main class="container py-4">
+    <div class="edit-account-card mx-auto">
+      <div class="edit-account-header mb-4">
+        <h2 class="mb-0 mx-auto">会員情報変更</h2>
+      </div>
+      <div class="edit-account-header mb-4">
+        <a href="Account.html" class="back-button align-bottom"><< 戻る</a>
+      </div>
+
+      <form id="accountEditForm" class="edit-account-form">
+        <div class="form-group">
+          <label for="editName">名前</label>
+          <input type="text" id="editName" class="form-control" placeholder="山田 太郎" value="山田 太郎" required>
+        </div>
+
+        <div class="form-group">
+          <label for="editEmail">メールアドレス</label>
+          <input type="email" id="editEmail" class="form-control" placeholder="yamada@example.com" value="yamada@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="editPassword">パスワード</label>
+          <input type="password" id="editPassword" class="form-control" placeholder="••••••••" required>
+        </div>
+
+        <div class="form-group">
+          <label for="editPasswordConfirm">パスワード（確認用）</label>
+          <input type="password" id="editPasswordConfirm" class="form-control" placeholder="••••••••" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">変更する</button>
+      </form>
+    </div>
+  </main>
+
+  <script src="../JavaScript/Page.js"></script>
+  <script src="../JavaScript/AccountEdit.js"></script>
+</body>
+</html>
