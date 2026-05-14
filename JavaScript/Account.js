@@ -53,8 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const editAccountBtn = document.getElementById('editAccountBtn');
   if (editAccountBtn) {
     editAccountBtn.addEventListener('click', () => {
-      alert('アカウント情報変更画面へ遷移します。');
-      // 実際には変更画面へ
+      window.location.href = 'AccountEdit.html';
     });
   }
 
