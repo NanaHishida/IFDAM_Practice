@@ -1,0 +1,83 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #FFD6E8 0%, #E8D5F0 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 20px;
+}
+
+.verification-done-container {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.verification-done-card {
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  text-align: center;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #0d6efd;
+  margin-bottom: 32px;
+  letter-spacing: 1px;
+}
+
+.verification-done-message {
+  font-size: 1rem;
+  color: #495057;
+  margin-bottom: 32px;
+}
+
+.btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.btn-primary {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #0a58ca;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(13, 110, 253, 0.3);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 480px) {
+  .verification-done-card {
+    padding: 24px;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    margin-bottom: 24px;
+  }
+
+  .verification-done-message {
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+  }
+}
