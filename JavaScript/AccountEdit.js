@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const accountEditForm = document.getElementById('accountEditForm');
   const logoutLink = document.getElementById('logoutLink');
+  const currentEmail = document.getElementById('editEmail').value;
 
   if (accountEditForm) {
     accountEditForm.addEventListener('submit', (event) => {
@@ -14,8 +15,16 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
+      const newEmail = document.getElementById('editEmail').textContent;
+
       alert('会員情報を変更しました。');
-      window.location.href = 'Account.html';
+
+      if (currentEmail === newEmail) {
+        window.location.href = 'Account.html';
+      } else {
+        document.getElementById('editEmail').value = newEmail;
+        window.location.href = 'Verification.html';
+      }
     });
   }
 

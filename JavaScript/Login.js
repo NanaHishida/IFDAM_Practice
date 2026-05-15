@@ -90,12 +90,12 @@ signupForm.addEventListener('submit', (e) => {
     return;
   }
 
-  alert(`アカウントを作成しました。\nメールアドレス: ${email}\n\nログイン画面に戻ります。`);
-  switchToLogin();
+  alert(`アカウントを作成しました`);
   document.getElementById('loginEmail').value = email;
   document.getElementById('loginPassword').value = '';
   document.getElementById('signupEmail').value = '';
   document.getElementById('signupPassword').value = '';
   document.getElementById('signupPasswordConfirm').value = '';
   document.getElementById('agreeTerms').checked = false;
+  window.location.href = 'Verification.html'
 });
