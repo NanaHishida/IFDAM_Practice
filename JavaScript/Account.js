@@ -21,6 +21,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ストレージ
+  const storage = localStorage;
+  if (storage.getItem('name')) {
+    document.getElementById('userName').textContent = storage.getItem('name');
+  } else {
+    document.getElementById('userName').textContent = '名前が登録されていません。アカウント情報の変更から名前を登録してください。';
+  }
+  if (storage.getItem('email')) {
+  document.getElementById('userEmail') = storage.getItem('email');
+  }
+
   // メニュー操作（Page.jsから流用）
   const menuToggle = document.getElementById('menuToggle');
   const menuPanel = document.getElementById('menuPanel');

@@ -2,6 +2,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const accountEditForm = document.getElementById('accountEditForm');
   const logoutLink = document.getElementById('logoutLink');
   const currentEmail = document.getElementById('editEmail').value;
+  if (localStorage.getItem('name')) {
+    document.getElementById('editName').value = localStorage.getItem('name');
+  } else {
+    document.getElementById('editName').value = '名前を設定してください';
+  };
+  const currentName = document.getElementById('editName').value;
 
   if (accountEditForm) {
     accountEditForm.addEventListener('submit', (event) => {
@@ -15,7 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      const newEmail = document.getElementById('editEmail').textContent;
+      const newEmail = document.getElementById('editEmail').value;
+      const newName = document.getElementById('editName').value;
 
       alert('会員情報を変更しました。');
 
@@ -24,6 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         document.getElementById('editEmail').value = newEmail;
         window.location.href = 'Verification.html';
+      }
+      if (currentName === newName) {
+        localStorage.setItem('name') = newName;
       }
     });
   }

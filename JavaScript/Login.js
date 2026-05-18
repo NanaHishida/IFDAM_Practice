@@ -3,6 +3,8 @@ const signupTab = document.getElementById('signupTab');
 const loginForm = document.getElementById('loginForm');
 const signupForm = document.getElementById('signupForm');
 
+const storage = localStorage;
+
 function switchToLogin() {
   loginTab.classList.add('active');
   signupTab.classList.remove('active');
@@ -55,6 +57,7 @@ loginForm.addEventListener('submit', (e) => {
 
   alert(`ログインしました。\nメールアドレス: ${email}`);
   document.cookie = 'login="y"; max-age=36000';
+  storage.setItem('email', email);
   history.back();
 });
 
@@ -97,5 +100,6 @@ signupForm.addEventListener('submit', (e) => {
   document.getElementById('signupPassword').value = '';
   document.getElementById('signupPasswordConfirm').value = '';
   document.getElementById('agreeTerms').checked = false;
+  storage.setItem('email', email);
   window.location.href = 'Verification.html'
 });
