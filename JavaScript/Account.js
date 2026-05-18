@@ -29,11 +29,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('userName').textContent = '名前が登録されていません。アカウント情報の変更から名前を登録してください。';
   }
   if (storage.getItem('email')) {
-  document.getElementById('userEmail') = storage.getItem('email');
+  document.getElementById('userEmail').value = storage.getItem('email');
   }
 
   // メニュー操作（Page.jsから流用）
   const menuToggle = document.getElementById('menuToggle');
+  const menuClose = document.getElementById('menuClose');
   const menuPanel = document.getElementById('menuPanel');
 
   function toggleMenu() {
@@ -43,6 +44,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   menuToggle.addEventListener('click', toggleMenu);
+  menuClose.addEventListener('click', () => {
+    menuToggle.focus();
+    toggleMenu();
+  });
   menuPanel.addEventListener('click', (event) => {
     if (event.target === menuPanel) toggleMenu();
   });
