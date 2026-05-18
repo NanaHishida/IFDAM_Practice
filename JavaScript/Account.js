@@ -24,12 +24,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // ストレージ
   const storage = localStorage;
   if (storage.getItem('name')) {
-    document.getElementById('userName').textContent = storage.getItem('name');
+    const name = storage.getItem('name');
+    document.getElementById('userName').textContent = name;
   } else {
     document.getElementById('userName').textContent = '名前が登録されていません。アカウント情報の変更から名前を登録してください。';
   }
   if (storage.getItem('email')) {
-  document.getElementById('userEmail').value = storage.getItem('email');
+    const email = storage.getItem('email');
+    document.getElementById('userEmail').textContent = email;
   }
 
   // メニュー操作（Page.jsから流用）

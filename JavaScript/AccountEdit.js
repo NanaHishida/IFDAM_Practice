@@ -24,16 +24,16 @@ document.addEventListener('DOMContentLoaded', () => {
       const newEmail = document.getElementById('editEmail').value;
       const newName = document.getElementById('editName').value;
 
+      // localStorageに保存
+      localStorage.setItem('name', newName);
+      localStorage.setItem('email', newEmail);
+
       alert('会員情報を変更しました。');
 
       if (currentEmail === newEmail) {
         window.location.href = 'Account.html';
       } else {
-        document.getElementById('editEmail').value = newEmail;
         window.location.href = 'Verification.html';
-      }
-      if (currentName === newName) {
-        localStorage.setItem('name') = newName;
       }
     });
   }
