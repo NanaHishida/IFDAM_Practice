@@ -13,13 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
     accountEditForm.addEventListener('submit', (event) => {
       event.preventDefault();
 
-      const password = document.getElementById('editPassword').value;
-      const passwordConfirm = document.getElementById('editPasswordConfirm').value;
-
-      if (password !== passwordConfirm) {
-        alert('パスワードと確認用パスワードが一致しません。');
-        return;
-      }
+      const typedPassword = document.getElementById('editPassword').value;
+      // const password = データベースのパスワードと照合
 
       const newEmail = document.getElementById('editEmail').value;
       const newName = document.getElementById('editName').value;
