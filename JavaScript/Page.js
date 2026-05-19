@@ -18,7 +18,10 @@ function toggleMenu() {
 }
 
 menuToggle.addEventListener('click', toggleMenu);
-menuClose.addEventListener('click', toggleMenu);
+menuClose.addEventListener('click', () => {
+  menuToggle.focus();
+  toggleMenu();
+});
 menuPanel.addEventListener('click', (event) => {
   if (event.target === menuPanel) toggleMenu();
 });
