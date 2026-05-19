@@ -21,6 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  const editPassword = document.getElementById('editPassword');
+  editPassword.addEventListener('click', () => {
+    window.location.href = 'PasswordChange.html';
+  });
+
   // ストレージ
   const storage = localStorage;
   if (storage.getItem('name')) {
