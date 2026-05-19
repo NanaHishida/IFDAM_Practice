@@ -1,0 +1,259 @@
+:root {
+  --bg: #f4f6fb;
+  --surface: #ffffff;
+  --border: #e4e7ed;
+  --text: #2f3d4a;
+  --muted: #6c7684;
+  --primary: #0d6efd;
+  --success: #198754;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.acceptance-header {
+  background-color: #fff;
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.page-title {
+  display: inline-block;
+  margin-left: 1rem;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+.user-area {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-name {
+  color: var(--muted);
+}
+
+.acceptance-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+  min-height: calc(100vh - 92px);
+}
+
+.acceptance-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background-color: #fff;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  position: sticky;
+  top: 1rem;
+  align-self: start;
+}
+
+.acceptance-content {
+  background-color: transparent;
+  max-height: calc(100vh - 92px);
+  overflow-y: auto;
+  padding-right: 1rem;
+}
+
+.menu-item {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0.9rem 1rem;
+  border-radius: 1rem;
+  transition: all 0.2s ease;
+  display: block;
+}
+
+.menu-item:hover,
+.menu-item.active {
+  background-color: #eef4ff;
+  color: var(--primary);
+}
+
+.acceptance-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.acceptance-content {
+  background-color: transparent;
+}
+
+.acceptance-summary h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.sort-label {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.sort-arrow {
+  margin-left: 0.5rem;
+}
+
+.order-list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.order-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  box-shadow: 0 10px 24px rgba(22, 29, 37, 0.05);
+}
+
+.order-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.order-id,
+.due-date {
+  margin: 0;
+  font-weight: 600;
+}
+
+.order-status {
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  background: #e8f4ff;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.order-status.in-progress {
+  background: #e8f7ed;
+  color: var(--success);
+}
+
+.order-body {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.preview-image {
+  background: #eef2f7;
+  border-radius: 1rem;
+  min-height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+}
+
+.order-info {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.order-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.85rem;
+  padding: 0.9rem 1.2rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #0b5ed7;
+}
+
+.btn-outline-primary {
+  background-color: transparent;
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-outline-primary:hover {
+  background-color: #eef4ff;
+}
+
+.btn-secondary {
+  background-color: #f8f9fa;
+  color: var(--text);
+  border-color: #dee2e6;
+}
+
+.btn-secondary:hover {
+  background-color: #e9ecef;
+}
+
+@media (max-width: 992px) {
+  .acceptance-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .acceptance-menu {
+    min-height: auto;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .order-body {
+    grid-template-columns: 1fr;
+  }
+
+  .order-actions {
+    justify-content: stretch;
+  }
+}

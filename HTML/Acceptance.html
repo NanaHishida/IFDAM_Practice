@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>受注管理</title>
+  <link rel="stylesheet" href="../CSS/bootstrap.css">
+  <link rel="stylesheet" href="../CSS/Acceptance.css">
+</head>
+<body>
+  <header class="acceptance-header container-fluid">
+    <div class="header-inner container d-flex align-items-center justify-content-between py-3">
+      <div>
+        <a href="index.html" class="brand">CakeFromZer0</a>
+        <span class="page-title">受注管理</span>
+      </div>
+      <div class="user-area">
+        <span class="user-name">担当者: 佐藤 一郎</span>
+        <button id="logoutButton" class="btn btn-outline-secondary btn-sm">ログアウト</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="acceptance-layout container">
+    <nav class="acceptance-menu">
+      <a href="#" class="menu-item active">受注管理</a>
+      <a href="#" class="menu-item">発注</a>
+      <a href="#" class="menu-item">値段調整</a>
+      <a href="#" class="menu-item">損益</a>
+      <a href="#" class="menu-item">システム管理</a>
+    </nav>
+
+    <main class="acceptance-content py-4">
+      <section class="acceptance-summary mb-4">
+      <h2>受注管理</h2>
+      <p class="sort-label">納期順 <span class="sort-arrow">↑</span></p>
+    </section>
+
+    <section class="order-list">
+      <article class="order-card">
+        <div class="order-header">
+          <div>
+            <p class="order-id">注文ID: 1234 5678</p>
+            <p class="due-date">納期: 2026年5月20日</p>
+          </div>
+          <div class="order-status">商品引き渡し待ち</div>
+        </div>
+        <div class="order-body">
+          <div class="preview-image">プレビューイメージ</div>
+          <div class="order-info">
+            <p>フルーツデコレーションケーキ<br>受取時間: 15:00</p>
+          </div>
+        </div>
+        <div class="order-actions">
+          <button class="btn btn-outline-primary">詳細を見る</button>
+          <button class="btn btn-primary">引き渡す</button>
+          <button class="btn btn-secondary">この注文を編集する</button>
+        </div>
+      </article>
+
+      <article class="order-card">
+        <div class="order-header">
+          <div>
+            <p class="order-id">注文ID: 2345 6789</p>
+            <p class="due-date">納期: 2026年5月21日</p>
+          </div>
+          <div class="order-status">商品引き渡し待ち</div>
+        </div>
+        <div class="order-body">
+          <div class="preview-image">プレビューイメージ</div>
+          <div class="order-info">
+            <p>チョコレートケーキ<br>受取時間: 12:30</p>
+          </div>
+        </div>
+        <div class="order-actions">
+          <button class="btn btn-outline-primary">詳細を見る</button>
+          <button class="btn btn-primary">引き渡す</button>
+          <button class="btn btn-secondary">この注文を編集する</button>
+        </div>
+      </article>
+
+      <article class="order-card">
+        <div class="order-header">
+          <div>
+            <p class="order-id">注文ID: 3456 7890</p>
+            <p class="due-date">納期: 2026年5月22日</p>
+          </div>
+          <div class="order-status in-progress">準備中</div>
+        </div>
+        <div class="order-body">
+          <div class="preview-image">プレビューイメージ</div>
+          <div class="order-info">
+            <p>ベリーのタルト<br>受取時間: 18:00</p>
+          </div>
+        </div>
+        <div class="order-actions">
+          <button class="btn btn-outline-primary">詳細を見る</button>
+          <button class="btn btn-primary">引き渡す</button>
+          <button class="btn btn-secondary">この注文を編集する</button>
+        </div>
+      </article>
+    </section>
+  </main>
+  </div>
+
+  <script src="../JavaScript/Acceptance.js"></script>
+</body>
+</html>
