@@ -156,6 +156,7 @@ body {
 .due-date {
   margin: 0;
   font-weight: 600;
+  font-size: 1.5rem;
 }
 
 .order-status {
@@ -173,7 +174,7 @@ body {
 
 .order-body {
   display: grid;
-  grid-template-columns: 180px 1fr;
+  grid-template-columns: 0.5fr 1fr;
   gap: 1rem;
   align-items: center;
   margin-bottom: 1.25rem;
@@ -183,15 +184,11 @@ body {
   background: #eef2f7;
   border-radius: 1rem;
   min-height: 140px;
+  max-width: 210px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--muted);
-}
-
-.order-info {
-  color: var(--muted);
-  line-height: 1.7;
 }
 
 .order-actions {
