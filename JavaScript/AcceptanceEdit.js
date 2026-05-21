@@ -58,4 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
       window.location.href = 'Acceptance.html';
     });
   }
+
+  document.getElementById('back').addEventListener('click', () => {
+    history.back();
+  })
 });

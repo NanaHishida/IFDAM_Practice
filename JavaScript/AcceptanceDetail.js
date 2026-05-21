@@ -9,4 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  document.getElementById('back').addEventListener('click', () => {
+    history.back();
+  })
 });
