@@ -365,6 +365,15 @@ body {
   color: var(--muted);
 }
 
+.detail-note {
+  padding: 1rem;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  color: var(--text);
+  white-space: pre-wrap;
+}
+
 .customize-controls {
   display: flex;
   align-items: center;

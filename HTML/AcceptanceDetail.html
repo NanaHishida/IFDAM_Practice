@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>受注詳細</title>
+  <link rel="stylesheet" href="../CSS/bootstrap.css">
+  <link rel="stylesheet" href="../CSS/Acceptance.css">
+</head>
+<body>
+  <header class="acceptance-header container-fluid">
+    <div class="header-inner container d-flex align-items-center justify-content-between py-3">
+      <div>
+        <a href="Acceptance.html" class="brand">CakeFromZer0</a>
+      </div>
+      <div class="user-area">
+        <span class="user-name">担当者: 佐藤 一郎</span>
+        <button id="logoutButton" class="btn btn-outline-secondary btn-sm">ログアウト</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container py-4">
+    <main class="acceptance-content py-4">
+      <h2>注文詳細</h2>
+      <a href="Acceptance.html" class="btn btn-outline-secondary btn-sm mb-1" style="padding: 0.75rem;"><< 戻る</a>
+
+      <section class="order-edit-card">
+        <div class="order-edit-header mb-4">
+          <div class="flex align-items-center gap-3">
+            <p class="order-id mb-1">注文ID: 1234 5678</p>
+            <p class="order-status">商品引き渡し待ち</p>
+          </div>
+          <a href="AcceptanceEdit.html" class="btn btn-secondary">この注文を編集する</a>
+        </div>
+
+        <div class="order-edit-grid">
+          <div class="edit-summary-panel">
+            <div class="form-group mb-3">
+              <p class="mb-1"><strong>納期</strong></p>
+              <p>2026年5月20日</p>
+            </div>
+
+            <div class="form-group mb-4">
+              <p class="mb-1"><strong>メモ</strong></p>
+              <div class="detail-note">プレートには○○くんと名前を入れてください。</div>
+            </div>
+
+            <div class="preview-image">プレビューイメージ</div>
+          </div>
+
+          <div class="customize-panel">
+            <div class="panel-header">
+              <h3>カスタマイズリスト</h3>
+              <p class="panel-note">この注文に含まれる内容です。</p>
+            </div>
+
+            <div class="customize-list">
+              <article class="customize-item">
+                <div>
+                  <p class="customize-name">スポンジ：ココア</p>
+                </div>
+              </article>
+              <article class="customize-item">
+                <div>
+                  <p class="customize-name">クリーム：チョコレート</p>
+                </div>
+              </article>
+              <article class="customize-item">
+                <div>
+                  <p class="customize-name">くまさんの土台チョコレート</p>
+                </div>
+              </article>
+              <article class="customize-item">
+                <div>
+                  <p class="customize-name">くまさんの顔黒</p>
+                </div>
+              </article>
+              <article class="customize-item">
+                <div>
+                  <p class="customize-name">誕生日プレート：日本語</p>
+                </div>
+              </article>
+              <article class="customize-item">
+                <div>
+                  <p class="customize-name">ろうそく：8本</p>
+                </div>
+              </article>
+              <article class="customize-item">
+                <div>
+                  <p class="customize-name">保冷材：3時間分</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../JavaScript/AcceptanceDetail.js"></script>
+</body>
+</html>
