@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>受注編集</title>
+  <link rel="stylesheet" href="../CSS/bootstrap.css">
+  <link rel="stylesheet" href="../CSS/Acceptance.css">
+</head>
+<body>
+  <header class="acceptance-header container-fluid">
+    <div class="header-inner container d-flex align-items-center justify-content-between py-3">
+      <div>
+        <a href="Acceptance.html" class="brand">CakeFromZer0</a>
+      </div>
+      <div class="user-area">
+        <span class="user-name">担当者: 佐藤 一郎</span>
+        <button id="logoutButton" class="btn btn-outline-secondary btn-sm">ログアウト</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container py-4">
+    <main class="acceptance-content py-4">
+      <h2 class="mb-4">注文を編集する</h2>
+      <section class="order-edit-card">
+        <div class="order-edit-header mb-4">
+          <div>
+            <p class="order-id">注文ID: 1234 5678</p>
+            <p class="order-status in-progress">編集中</p>
+          </div>
+          <a href="Acceptance.html" class="btn btn-outline-secondary">戻る</a>
+        </div>
+
+        <form id="acceptanceEditForm" class="order-edit-form">
+          <div class="order-edit-grid">
+            <div class="edit-summary-panel">
+              <div class="form-group">
+                <label for="deliveryDate">納期</label>
+                <select id="deliveryDate" class="form-select">
+                  <option>2026年5月20日</option>
+                  <option>2026年5月21日</option>
+                  <option>2026年5月22日</option>
+                  <option>2026年5月23日</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="orderNote">メモ</label>
+                <textarea id="orderNote" class="form-control" rows="4" placeholder="お客様からのご要望を入力してください。">デザインの色を青基調でお願いします。</textarea>
+              </div>
+
+              <div class="preview-image">プレビューイメージ</div>
+            </div>
+
+            <div class="customize-panel">
+              <div class="panel-header">
+                <h3>カスタマイズリスト</h3>
+                <p class="panel-note">数量を調整して、必要に応じて削除・変更してください。</p>
+              </div>
+
+              <div class="customize-list">
+                <article class="customize-item">
+                  <div>
+                    <p class="customize-name">チョコレートクリーム</p>
+                    <p class="customize-note">濃厚な味わい</p>
+                  </div>
+                  <div class="customize-controls">
+                    <button type="button" class="btn btn-outline-secondary btn-sm quantity-btn" data-action="decrease">-</button>
+                    <input type="text" class="quantity-input" value="1" readonly>
+                    <button type="button" class="btn btn-outline-secondary btn-sm quantity-btn" data-action="increase">+</button>
+                  </div>
+                  <div class="customize-actions">
+                    <button type="button" class="btn btn-secondary btn-sm">変更</button>
+                    <button type="button" class="btn btn-outline-danger btn-sm remove-btn">削除</button>
+                  </div>
+                </article>
+
+                <article class="customize-item">
+                  <div>
+                    <p class="customize-name">フルーツトッピング</p>
+                    <p class="customize-note">苺・キウイ・ブルーベリー</p>
+                  </div>
+                  <div class="customize-controls">
+                    <button type="button" class="btn btn-outline-secondary btn-sm quantity-btn" data-action="decrease">-</button>
+                    <input type="text" class="quantity-input" value="2" readonly>
+                    <button type="button" class="btn btn-outline-secondary btn-sm quantity-btn" data-action="increase">+</button>
+                  </div>
+                  <div class="customize-actions">
+                    <button type="button" class="btn btn-secondary btn-sm">変更</button>
+                    <button type="button" class="btn btn-outline-danger btn-sm remove-btn">削除</button>
+                  </div>
+                </article>
+
+                <article class="customize-item">
+                  <div>
+                    <p class="customize-name">メッセージプレート</p>
+                    <p class="customize-note">手書き風フォント</p>
+                  </div>
+                  <div class="customize-controls">
+                    <button type="button" class="btn btn-outline-secondary btn-sm quantity-btn" data-action="decrease">-</button>
+                    <input type="text" class="quantity-input" value="1" readonly>
+                    <button type="button" class="btn btn-outline-secondary btn-sm quantity-btn" data-action="increase">+</button>
+                  </div>
+                  <div class="customize-actions">
+                    <button type="button" class="btn btn-secondary btn-sm">変更</button>
+                    <button type="button" class="btn btn-outline-danger btn-sm remove-btn">削除</button>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+
+          <div class="edit-actions">
+            <button type="button" class="btn btn-outline-danger">この注文をキャンセルする</button>
+            <button type="button" class="btn btn-secondary">編集キャンセル</button>
+            <button type="submit" class="btn btn-primary">編集確定</button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="../JavaScript/AcceptanceEdit.js"></script>
+</body>
+</html>
