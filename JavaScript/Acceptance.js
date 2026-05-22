@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   handoverButtons.forEach((button) => {
     button.addEventListener('click', () => {
-      alert('商品を引き渡しました。');
+      window.location.href = 'Handover.html';
     });
   });
 

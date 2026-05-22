@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>商品引き渡し</title>
+  <link rel="stylesheet" href="../CSS/bootstrap.css">
+  <link rel="stylesheet" href="../CSS/Acceptance.css">
+  <link rel="stylesheet" href="../CSS/Handover.css">
+</head>
+<body>
+  <header class="acceptance-header container-fluid">
+    <div class="header-inner container d-flex align-items-center justify-content-between py-3">
+      <div>
+        <a href="Acceptance.html" class="brand">CakeFromZer0</a>
+      </div>
+      <div class="user-area">
+        <span class="user-name">担当者: 佐藤 一郎</span>
+        <button id="logoutButton" class="btn btn-outline-secondary btn-sm">ログアウト</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container py-4">
+    <main class="acceptance-content py-4">
+      <h2>商品引き渡し</h2>
+      <a class="btn btn-outline-secondary btn-sm mb-3" style="padding: 0.75rem;" id="backButton"><< 戻る</a>
+
+      <section class="handover-card">
+        <div class="handover-header mb-4">
+          <div>
+            <p class="order-id mb-2">注文ID: 1234 5678</p>
+            <p class="mb-2"><strong>納期:</strong> 2026年5月20日</p>
+          </div>
+        </div>
+
+        <div class="handover-grid">
+          <div class="handover-left-panel">
+            <!-- メモ -->
+            <div class="form-group mb-4">
+              <p class="mb-2"><strong>メモ</strong></p>
+              <div class="detail-note">プレートには○○くんと名前を入れてください。</div>
+            </div>
+
+            <!-- 決済方法 -->
+            <div class="form-group mb-4">
+              <p class="mb-2"><strong>決済方法</strong></p>
+              <p class="payment-method payment-method--cash">現金</p>
+            </div>
+
+            <!-- 税込合計 -->
+            <div class="form-group mb-4">
+              <p class="mb-2"><strong>税込合計</strong></p>
+              <p class="total-price">¥5,500</p>
+            </div>
+
+            <!-- 顧客名 -->
+            <div class="form-group mb-4">
+              <p class="mb-2"><strong>名前</strong></p>
+              <p class="customer-name">山田 さとし 様</p>
+            </div>
+
+            <!-- プレビューイメージ -->
+            <div class="preview-image">プレビューイメージ</div>
+          </div>
+
+          <div class="handover-right-panel">
+            <div class="panel-header">
+              <h3>カスタマイズ</h3>
+              <p class="panel-note">この注文に含まれる内容です。</p>
+            </div>
+
+            <div class="customize-list">
+              <article class="customize-item">
+                <div>
+                  <p class="customize-name">スポンジ：ココア</p>
+                </div>
+              </article>
+              <article class="customize-item">
+                <div>
+                  <p class="customize-name">クリーム：チョコレート</p>
+                </div>
+              </article>
+              <article class="customize-item">
+                <div>
+                  <p class="customize-name">くまさんの土台チョコレート</p>
+                </div>
+              </article>
+              <article class="customize-item">
+                <div>
+                  <p class="customize-name">くまさんの顔黒</p>
+                </div>
+              </article>
+              <article class="customize-item">
+                <div>
+                  <p class="customize-name">誕生日プレート：日本語</p>
+                </div>
+              </article>
+              <article class="customize-item">
+                <div>
+                  <p class="customize-name">ろうそく：8本</p>
+                </div>
+              </article>
+              <article class="customize-item">
+                <div>
+                  <p class="customize-name">保冷材：3時間分</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <div class="handover-actions mt-4">
+          <button class="btn btn-primary btn-lg" id="handoverCompleteButton">引き渡し済</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../JavaScript/Handover.js"></script>
+</body>
+</html>
