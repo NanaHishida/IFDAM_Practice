@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const detailButtons = document.querySelectorAll('.btn-outline-primary');
   const handoverButtons = document.querySelectorAll('.btn-primary');
   const editButtons = document.querySelectorAll('.btn-secondary');
+  const statusSelects = document.querySelectorAll('select.order-status');
 
   //ドキュメントの注文を並べる場所を取得
   //データをデータベースから入手
@@ -16,6 +17,31 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // 注文ステータスドロップダウンの変更イベント
+  statusSelects.forEach((select) => {
+    // 初期状態でクラスを設定
+    const initialValue = select.value;
+    select.classList.add(`order-status--${initialValue}`);
+    
+    select.addEventListener('change', (e) => {
+      const value = e.target.value;
+      const statusTexts = {
+        'waiting': '商品引き渡し待ち',
+        'in-progress': '準備中',
+        'completed': '完了'
+      };
+      
+      // 前のクラスをすべて削除
+      select.classList.remove('order-status--waiting', 'order-status--in-progress', 'order-status--completed');
+      
+      // 新しいクラスを追加
+      select.classList.add(`order-status--${value}`);
+      
+      console.log(`注文ステータスが「${statusTexts[value]}」に変更されました`);
+      // ここでサーバーに送信する処理を追加できます
+    });
+  });
 
   detailButtons.forEach((button) => {
     button.addEventListener('click', () => {

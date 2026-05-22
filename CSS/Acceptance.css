@@ -163,14 +163,36 @@ body {
 .order-status {
   padding: 0.35rem 0.8rem;
   border-radius: 999px;
-  background: #e8f4ff;
-  color: var(--primary);
   font-weight: 600;
+  border: none;
+  font-size: 0.95rem;
+  cursor: pointer;
+  appearance: none;
+  padding-right: 1.75rem;
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  transition: background-color 0.2s, color 0.2s;
 }
 
-.order-status.in-progress {
-  background: #e8f7ed;
+/* 待機中（デフォルト） */
+.order-status--waiting {
+  background-color: #e8f4ff;
+  color: var(--primary);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%230d6efd' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+}
+
+/* 準備中 */
+.order-status--in-progress {
+  background-color: #e8f7ed;
   color: var(--success);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23198754' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+}
+
+/* 完了 */
+.order-status--completed {
+  background-color: #f5f5f5;
+  color: #666;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23666' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
 }
 
 .order-body {

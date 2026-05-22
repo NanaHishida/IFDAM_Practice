@@ -47,7 +47,11 @@
             <p class="order-id">注文ID: 1234 5678</p>
             <p>山田 さとし 様</p>
           </div>
-          <div class="order-status">商品引き渡し待ち</div>
+          <select class="order-status">
+            <option value="waiting">商品引き渡し待ち</option>
+            <option value="in-progress">準備中</option>
+            <option value="completed">完了</option>
+          </select>
         </div> <!--.order-header-->
         <div class="order-body">
           <p class="due-date">納期: 2026年5月20日</p>
@@ -66,7 +70,11 @@
             <p class="order-id">注文ID: 1234 5678</p>
             <p>山田 さとし 様</p>
           </div>
-          <div class="order-status">商品引き渡し待ち</div>
+          <select class="order-status">
+            <option value="waiting">商品引き渡し待ち</option>
+            <option value="in-progress">準備中</option>
+            <option value="completed">完了</option>
+          </select>
         </div> <!--.order-header-->
         <div class="order-body">
           <p class="due-date">納期: 2026年5月20日</p>
@@ -85,7 +93,11 @@
             <p class="order-id">注文ID: 1234 5678</p>
             <p>山田 さとし 様</p>
           </div>
-          <div class="order-status in-progress">準備中</div>
+          <select class="order-status" value="in-progress">
+            <option value="waiting">商品引き渡し待ち</option>
+            <option value="in-progress" selected>準備中</option>
+            <option value="completed">完了</option>
+          </select>
         </div> <!--.order-header-->
         <div class="order-body">
           <p class="due-date">納期: 2026年5月20日</p>
