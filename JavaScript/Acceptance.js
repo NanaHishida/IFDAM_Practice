@@ -4,6 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const handoverButtons = document.querySelectorAll('.btn-primary');
   const editButtons = document.querySelectorAll('.btn-secondary');
 
+  //ドキュメントの注文を並べる場所を取得
+  //データをデータベースから入手
+  //innerHTMLする
+
   if (logoutButton) {
     logoutButton.addEventListener('click', () => {
       if (confirm('ログアウトしますか？')) {

@@ -1,6 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
   const logoutButton = document.getElementById('logoutButton');
 
+  //注文の内容をデータベースから取得
+  //表示する場所をドキュメントから取得
+  //innerHTMLする
+
   if (logoutButton) {
     logoutButton.addEventListener('click', () => {
       if (confirm('ログアウトしますか？')) {

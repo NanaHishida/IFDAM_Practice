@@ -54,6 +54,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (form) {
     form.addEventListener('submit', (event) => {
       event.preventDefault();
+      //編集内容を取得
+      //編集内容をデータベースにアップロード
       alert('受注内容を更新しました。');
       window.location.href = 'Acceptance.html';
     });
