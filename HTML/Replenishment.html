@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>発注</title>
+  <link rel="stylesheet" href="../CSS/bootstrap.css">
+  <link rel="stylesheet" href="../CSS/Acceptance.css">
+  <link rel="stylesheet" href="../CSS/Replenishment.css">
+</head>
+<body>
+  <header class="acceptance-header container-fluid">
+    <div class="header-inner container d-flex align-items-center justify-content-between py-3">
+      <div>
+        <a href="Acceptance.html" class="brand">CakeFromZer0</a>
+      </div>
+      <div class="user-area">
+        <span class="user-name">担当者: 店長 太郎</span>
+        <button id="logoutButton" class="btn btn-outline-secondary btn-sm">ログアウト</button>
+      </div>
+    </div>
+  </header>
+  <div class="acceptance-layout container">
+    <nav class="acceptance-menu">
+      <a href="Acceptance.html" class="menu-item">受注管理</a>
+      <a href="Replenishment.html" class="menu-item active">発注</a>
+      <a href="#" class="menu-item">値段調整</a>
+      <a href="#" class="menu-item">損益</a>
+      <a href="#" class="menu-item">システム管理</a>
+    </nav>
+
+    <main class="acceptance-content py-4">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>発注</h2>
+        <button id="sendOrders" class="btn btn-primary">送信する</button>
+      </div>
+
+      <section class="inventory-list">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>要</th>
+              <th>材料名</th>
+              <th>現在(在庫数)</th>
+              <th>注文セット数</th>
+              <th>セット内個数</th>
+              <th>合計個数</th>
+              <th>単価(円)</th>
+              <th>金額(円)</th>
+            </tr>
+          </thead>
+          <tbody id="items">
+            <!-- サンプル行。JavaScriptで動的に扱います -->
+            <tr data-item-id="100">
+              <td><span class="need-mark">要</span></td>
+              <td class="name">スポンジ(ココア)</td>
+              <td class="stock">0</td>
+              <td><input type="number" min="0" value="1" class="order-sets form-control form-control-sm"></td>
+              <td class="per-set">10</td>
+              <td class="total-count">10</td>
+              <td class="unit-price">200</td>
+              <td class="amount">2000</td>
+            </tr>
+
+            <tr data-item-id="101">
+              <td></td>
+              <td class="name">お誕生日プレート</td>
+              <td class="stock">2</td>
+              <td><input type="number" min="0" value="0" class="order-sets form-control form-control-sm"></td>
+              <td class="per-set">1</td>
+              <td class="total-count">0</td>
+              <td class="unit-price">150</td>
+              <td class="amount">0</td>
+            </tr>
+
+            <tr data-item-id="102">
+              <td></td>
+              <td class="name">クリーム(大)</td>
+              <td class="stock">5</td>
+              <td><input type="number" min="0" value="0" class="order-sets form-control form-control-sm"></td>
+              <td class="per-set">5</td>
+              <td class="total-count">0</td>
+              <td class="unit-price">120</td>
+              <td class="amount">0</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <div class="order-summary d-flex justify-content-end mt-3">
+        <div class="me-3">合計金額: <span id="grandTotal">0</span> 円</div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../JavaScript/Replenishment.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+/* Replenishment page styles — align with Acceptance look */
+.replenishment-header .brand{
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--primary);
+}
+
+/* Layout falls back to Acceptance.css grid; keep minor overrides */
+.replenishment-layout{ display:grid; grid-template-columns: 260px 1fr; gap: 1.5rem; }
+.replenishment-menu{ display:flex; flex-direction:column; gap:0.75rem; padding:1.5rem; background:#fff; border:1px solid var(--border); border-radius:1rem; margin-top:1rem; position:sticky; top:1rem; }
+.replenishment-menu .menu-item{ color: var(--muted); text-decoration:none; padding:0.9rem 1rem; border-radius:1rem; display:block; }
+.replenishment-menu .menu-item:hover, .replenishment-menu .menu-item.active{ background-color: #eef4ff; color: var(--primary); }
+
+.replenishment-content{ padding-right:1rem; }
+
+.need-mark{ color:#b71c1c; font-weight:700; }
+
+/* Inventory table card to match Acceptance card style */
+.inventory-list {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  padding: 1.25rem;
+  box-shadow: 0 10px 24px rgba(22,29,37,0.05);
+}
+
+.inventory-list .table {
+  margin-bottom: 0;
+}
+
+.inventory-list .table th,
+.inventory-list .table td { vertical-align: middle; padding: 0.75rem 0.5rem; }
+
+.order-summary{ font-weight:700; }
+
+@media (max-width: 992px) {
+  .replenishment-layout { grid-template-columns: 1fr; }
+  .replenishment-menu { position: static; margin-top: 0; }
+}
+
