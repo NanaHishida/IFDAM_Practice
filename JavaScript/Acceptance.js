@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
       };
       
       // 前のクラスをすべて削除
-      select.classList.remove('order-status--waiting', 'order-status--in-progress', 'order-status--completed');
+      select.classList.remove('order-status--newlyAccepted', 'order-status--waiting', 'order-status--in-progress', 'order-status--completed');
       
       // 新しいクラスを追加
       select.classList.add(`order-status--${value}`);
