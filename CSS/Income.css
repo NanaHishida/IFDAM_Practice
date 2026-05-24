@@ -1,0 +1,8 @@
+/* Income page styles — align with Acceptance */
+.income-summaries{ display: grid; gap: 1rem; }
+.income-card{ background: var(--surface); border:1px solid var(--border); border-radius:1.25rem; padding:1rem; box-shadow:0 10px 24px rgba(22,29,37,0.05); }
+.income-card .card-header{ display:flex; gap:1rem; align-items:center; justify-content:space-between; }
+.income-card .card-title{ margin:0; font-size:1.1rem; }
+.income-card .card-body{ margin-top:0.5rem; display:flex; gap:1rem; flex-wrap:wrap; }
+
+.income-details .order-card{ padding:1rem; }

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>損益詳細</title>
+  <link rel="stylesheet" href="../CSS/bootstrap.css">
+  <link rel="stylesheet" href="../CSS/Acceptance.css">
+  <link rel="stylesheet" href="../CSS/Income.css">
+</head>
+<body>
+  <header class="acceptance-header container-fluid">
+    <div class="header-inner container d-flex align-items-center justify-content-between py-3">
+      <div>
+        <a href="Income.html" class="brand">CakeFromZer0</a>
+      </div>
+      <div class="user-area">
+        <span class="user-name">担当者: 経理 太郎</span>
+        <button id="logoutButton" class="btn btn-outline-secondary btn-sm">ログアウト</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container py-4">
+    <main class="acceptance-content py-4">
+      <a href="Income.html" class="btn btn-outline-secondary btn-sm mb-3">&lt;&lt; 戻る</a>
+      <h2>損益詳細</h2>
+
+      <section class="income-details">
+        <article class="order-card mb-3">
+          <h3>仕入</h3>
+          <table class="table">
+            <thead>
+              <tr><th>発注ID</th><th>項目</th><th>金額(¥)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>PO-001</td><td>スポンジ(ココア)</td><td>¥4,000</td></tr>
+              <tr><td>PO-002</td><td>クリーム(大)</td><td>¥8,000</td></tr>
+            </tbody>
+          </table>
+          <div class="text-end"><strong>合計 ¥12,000</strong></div>
+        </article>
+
+        <article class="order-card mb-3">
+          <h3>売上</h3>
+          <table class="table">
+            <thead>
+              <tr><th>注文ID</th><th>顧客</th><th>金額(¥)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>SO-123</td><td>山田 太郎</td><td>¥25,000</td></tr>
+              <tr><td>SO-124</td><td>佐藤 花子</td><td>¥25,000</td></tr>
+            </tbody>
+          </table>
+          <div class="text-end"><strong>合計 ¥50,000</strong></div>
+        </article>
+
+        <div class="order-card">
+          <h3>集計</h3>
+          <p>仮払消費税: ¥0</p>
+          <p>仮受消費税: ¥0</p>
+          <p class="fs-5">差引: <strong>¥38,000</strong></p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../JavaScript/Income.js"></script>
+</body>
+</html>
