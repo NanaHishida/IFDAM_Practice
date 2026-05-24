@@ -1,0 +1,17 @@
+/* PriceChange specific styles — keep consistent with Acceptance */
+.pricechange-list{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  padding: 1.25rem;
+  box-shadow: 0 10px 24px rgba(22,29,37,0.05);
+}
+
+.pricechange-list .table{ margin-bottom: 0; }
+.pricechange-list .table th, .pricechange-list .table td{ vertical-align:middle; padding:0.75rem 0.5rem; }
+
+.new-price{ max-width:140px; }
+
+@media (max-width: 768px){
+  .new-price{ max-width:100%; }
+}
