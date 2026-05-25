@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>従業員アカウント管理</title>
+  <link rel="stylesheet" href="../CSS/bootstrap.css">
+  <link rel="stylesheet" href="../CSS/Acceptance.css">
+  <link rel="stylesheet" href="../CSS/Administerer.css">
+</head>
+<body>
+  <header class="acceptance-header container-fluid">
+    <div class="header-inner container d-flex align-items-center justify-content-between py-3">
+      <div>
+        <a href="Administerer.html" class="brand">CakeFromZer0</a>
+      </div>
+      <div class="user-area">
+        <span class="user-name">担当者: 管理者 太郎</span>
+        <button id="logoutButton" class="btn btn-outline-secondary btn-sm">ログアウト</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container py-4">
+    <main class="acceptance-content py-4">
+      <a href="Administerer.html" class="btn btn-outline-secondary btn-sm mb-3">&lt;&lt; 戻る</a>
+      <h2>従業員アカウント管理</h2>
+
+      <div class="mb-3">
+        <button id="addAccount" class="btn btn-primary">アカウントを追加する</button>
+      </div>
+
+      <section class="account-list">
+        <div class="list">
+          <article class="customize-item d-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center gap-3">
+              <div class="avatar">👤</div>
+              <div>
+                <p class="mb-0 fw-bold">山田 太郎</p>
+                <p class="mb-0 text-muted">社長</p>
+              </div>
+            </div>
+            <div>
+              <button class="btn btn-outline-danger btn-sm delete-account">アカウントを削除する</button>
+            </div>
+          </article>
+
+          <article class="customize-item d-flex align-items-center justify-content-between mt-2">
+            <div class="d-flex align-items-center gap-3">
+              <div class="avatar">👤</div>
+              <div>
+                <p class="mb-0 fw-bold">佐藤 管理</p>
+                <p class="mb-0 text-muted">管理職</p>
+              </div>
+            </div>
+            <div>
+              <button class="btn btn-outline-danger btn-sm delete-account">アカウントを削除する</button>
+            </div>
+          </article>
+
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../JavaScript/Administerer.js"></script>
+</body>
+</html>

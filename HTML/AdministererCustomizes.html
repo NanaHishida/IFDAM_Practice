@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>カスタマイズ管理</title>
+  <link rel="stylesheet" href="../CSS/bootstrap.css">
+  <link rel="stylesheet" href="../CSS/Acceptance.css">
+  <link rel="stylesheet" href="../CSS/Administerer.css">
+</head>
+<body>
+  <header class="acceptance-header container-fluid">
+    <div class="header-inner container d-flex align-items-center justify-content-between py-3">
+      <div>
+        <a href="Administerer.html" class="brand">CakeFromZer0</a>
+      </div>
+      <div class="user-area">
+        <span class="user-name">担当者: 管理者 太郎</span>
+        <button id="logoutButton" class="btn btn-outline-secondary btn-sm">ログアウト</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container py-4">
+    <main class="acceptance-content py-4">
+      <a href="Administerer.html" class="btn btn-outline-secondary btn-sm mb-3">&lt;&lt; 戻る</a>
+      <h2>カスタマイズ管理</h2>
+
+      <div class="mb-3">
+        <button id="addCustomize" class="btn btn-primary">新しく追加する</button>
+      </div>
+
+      <section class="customize-list">
+        <article class="customize-item d-flex align-items-center justify-content-between">
+          <div>
+            <p class="mb-0 fw-bold">スポンジ：ココア</p>
+            <p class="mb-0 text-muted">在庫利用: トッピング</p>
+          </div>
+          <div class="d-flex gap-2">
+            <button class="btn btn-outline-danger btn-sm stop-order">受注を停止する</button>
+            <button class="btn btn-outline-danger btn-sm delete-customize">削除する</button>
+          </div>
+        </article>
+
+        <article class="customize-item d-flex align-items-center justify-content-between mt-2">
+          <div>
+            <p class="mb-0 fw-bold">クリーム：チョコレート</p>
+            <p class="mb-0 text-muted">在庫利用: クリーム</p>
+          </div>
+          <div class="d-flex gap-2">
+            <button class="btn btn-outline-danger btn-sm stop-order">受注を停止する</button>
+            <button class="btn btn-outline-danger btn-sm delete-customize">削除する</button>
+          </div>
+        </article>
+
+      </section>
+    </main>
+  </div>
+
+  <script src="../JavaScript/Administerer.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>システム管理</title>
+  <link rel="stylesheet" href="../CSS/bootstrap.css">
+  <link rel="stylesheet" href="../CSS/Acceptance.css">
+  <link rel="stylesheet" href="../CSS/Administerer.css">
+</head>
+<body>
+  <header class="acceptance-header container-fluid">
+    <div class="header-inner container d-flex align-items-center justify-content-between py-3">
+      <div>
+        <a href="Acceptance.html" class="brand">CakeFromZer0</a>
+      </div>
+      <div class="user-area">
+        <span class="user-name">担当者: 管理者 太郎</span>
+        <button id="logoutButton" class="btn btn-outline-secondary btn-sm">ログアウト</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="acceptance-layout container">
+    <nav class="acceptance-menu">
+      <a href="Acceptance.html" class="menu-item">受注管理</a>
+      <a href="Replenishment.html" class="menu-item">発注</a>
+      <a href="PriceChange.html" class="menu-item">値段調整</a>
+      <a href="Income.html" class="menu-item">損益</a>
+      <a href="Administerer.html" class="menu-item active">システム管理</a>
+    </nav>
+
+    <main class="acceptance-content py-4">
+      <h2>システム管理</h2>
+
+      <div class="system-actions mt-4">
+        <a href="AdministererAccount.html" class="btn btn-outline-primary me-2">従業員アカウント管理</a>
+        <a href="AdministererCustomizes.html" class="btn btn-outline-primary me-2">カスタマイズ管理</a>
+        <button id="toggleOrders" class="btn btn-outline-danger">受注を停止する</button>
+      </div>
+
+      <div class="mt-4">
+        <p class="text-muted">システム管理から従業員アカウントとカスタマイズの管理が行えます。</p>
+      </div>
+    </main>
+  </div>
+
+  <script src="../JavaScript/Administerer.js"></script>
+</body>
+</html>

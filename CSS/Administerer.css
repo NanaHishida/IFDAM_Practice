@@ -1,0 +1,9 @@
+/* Administerer (system) page styles */
+.system-actions .btn{ margin-right:0.5rem; }
+.avatar{ width:44px; height:44px; display:flex; align-items:center; justify-content:center; background:#f1f5f9; border-radius:50%; }
+
+.customize-item{ background: var(--surface); border:1px solid var(--border); border-radius:1rem; padding:0.85rem; }
+
+.stop-order{ background: transparent; color:#d63384; border-color:#d63384; }
+
+*** End Patch
