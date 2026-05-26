@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
       toggleOrders.textContent = stopped ? '受注を再開する' : '受注を停止する';
       toggleOrders.classList.toggle('btn-outline-danger');
       toggleOrders.classList.toggle('btn-outline-success');
+      confirm(`本当に受注を${stopped ? '停止' : '再開'}しますか？`);
       alert(`受注を${stopped ? '停止' : '再開'}しました（ダミー）。`);
     });
   }
