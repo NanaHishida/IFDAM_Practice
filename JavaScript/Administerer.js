@@ -22,6 +22,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const customizePrice = document.getElementById('customizePrice');
   const customizePhoto = document.getElementById('customizePhoto');
   const customizePreview = document.getElementById('customizePreview');
+  const accountModal = document.getElementById('accountAddModal');
+  const addAccount = document.getElementById('addAccount');
+  const closeAccountModal = document.getElementById('closeAccountModal');
+  const cancelAccountModal = document.getElementById('cancelAccountModal');
+  const submitAccountModal = document.getElementById('submitAccountModal');
+  const accountLastName = document.getElementById('accountLastName');
+  const accountFirstName = document.getElementById('accountFirstName');
+  const accountPassword = document.getElementById('accountPassword');
+  const accountRole = document.getElementById('accountRole');
+  const accountList = document.querySelector('.account-list .list');
 
   function addCustomizeEventListeners(article) {
     const deleteButton = article.querySelector('.delete-customize');
@@ -75,11 +85,82 @@ document.addEventListener('DOMContentLoaded', () => {
     addCustomize.addEventListener('click', openModal);
   }
 
+  if (addAccount) {
+    addAccount.addEventListener('click', () => {
+      if (accountModal) {
+        accountModal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  }
+
   closeCustomizeModal?.addEventListener('click', closeModal);
   cancelCustomizeModal?.addEventListener('click', closeModal);
   customizeModal?.addEventListener('click', (e) => {
     if (e.target === customizeModal) closeModal();
   });
+
+  closeAccountModal?.addEventListener('click', () => {
+    if (accountModal) closeAccountModalFunc();
+  });
+  cancelAccountModal?.addEventListener('click', () => {
+    if (accountModal) closeAccountModalFunc();
+  });
+  accountModal?.addEventListener('click', (e) => {
+    if (e.target === accountModal) closeAccountModalFunc();
+  });
+
+  submitAccountModal?.addEventListener('click', () => {
+    const lastName = accountLastName.value.trim();
+    const firstName = accountFirstName.value.trim();
+    const password = accountPassword.value;
+    const role = accountRole.value;
+
+    if (!lastName) {
+      alert('苗字を入力してください。');
+      return;
+    }
+    if (!firstName) {
+      alert('名前を入力してください。');
+      return;
+    }
+    if (!password) {
+      alert('パスワードを入力してください。');
+      return;
+    }
+
+    const fullName = `${lastName} ${firstName}`;
+    const article = document.createElement('article');
+    article.className = 'customize-item d-flex align-items-center justify-content-between mt-2';
+    article.innerHTML = `
+      <div class="d-flex align-items-center gap-3">
+        <div class="avatar">👤</div>
+        <div>
+          <p class="mb-0 fw-bold">${fullName}</p>
+          <p class="mb-0 text-muted">${role}</p>
+        </div>
+      </div>
+      <div>
+        <button class="btn btn-outline-danger btn-sm delete-account">アカウントを削除する</button>
+      </div>
+    `;
+    accountList.appendChild(article);
+    article.querySelector('.delete-account')?.addEventListener('click', (e) => {
+      if (!confirm('このアカウントを削除しますか？')) return;
+      e.target.closest('article').remove();
+    });
+    closeAccountModalFunc();
+  });
+
+  function closeAccountModalFunc() {
+    if (!accountModal) return;
+    accountModal.classList.remove('show');
+    document.body.style.overflow = '';
+    accountLastName.value = '';
+    accountFirstName.value = '';
+    accountPassword.value = '';
+    accountRole.value = '社長';
+  }
 
   submitCustomizeModal?.addEventListener('click', () => {
     const name = customizeName.value.trim();
